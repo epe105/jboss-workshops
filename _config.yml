@@ -27,6 +27,11 @@ gems:
   - jekyll-paginate
   - jemoji
 
+# Exclude
+exclude:
+   - Gemfile
+   - jekyll-cayman-theme.gemspec
+
 # Local server port
 port: 4000
 
