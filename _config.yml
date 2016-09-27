@@ -1,17 +1,28 @@
 # Setup
-title:        Project or Site name
-tagline:      A responsive theme for your project on GitHub Pages
-baseurl:      ""
-paginate:     1
+title: Red Hat JBoss Middleware Workshops
+tagline: > # this means to ignore newlines until "baseurl:"
+  Don't just read about what Red Hat JBoss Middleware products can do — try it for yourself with these workshops!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+twitter_username: ecwpz91
+github_username:  ecwpz91
+paginate: 1
 
 # About/contact
 author:
-  name:       Author name
-  url:        http://yourhomepage.com 
+  name: Michael Surbey
+  # url:  http://yourhomepage.com
+
+# Build settings
+markdown: kramdown
 
 # Gems
 gems:
   - jekyll-paginate
+  - jemoji
 
-#Others
-markdown: kramdown
+# Local server port
+port: 4000
+
+# Local server hostname
+host: 0.0.0.0
