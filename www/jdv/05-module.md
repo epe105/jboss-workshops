@@ -1,6 +1,6 @@
 ---
 layout: "module"
-subtitle: "Start & Configure Demo Database"
+subtitle: "Setup Demo Database"
 ---
 
 In order to use the labs we need to prepare one database.
