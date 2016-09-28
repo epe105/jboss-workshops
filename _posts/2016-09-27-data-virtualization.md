@@ -115,6 +115,7 @@ http://127.0.0.1:6832/
 ```
 
 To SSH into running container:
+
 ```
 docker exec -it --user jboss test_jdv /bin/bash
 ```
@@ -126,16 +127,19 @@ docker exec -it --user root test_jdv /bin/bash
 ```
 
 To view log files of docker container:
+
 ```
 docker logs test_jdv
 ```
 
 To stop the container:
+
 ```
 docker stop test_jdv
 ```
 
 To delete the container:
+
 ```
 docker rm -f test_jdv
 ```
@@ -167,6 +171,7 @@ docker rm -f test_jdv
 #### 4.3.1 Usage
 
 To boot in standalone mode:
+
 ```
 docker run -d -p 6432:3306 --name test_mysql ecwpz91/mysql57
 ```
@@ -177,6 +182,7 @@ Doing so allows remote mysql clients to connect to the containerized MySQL Relat
 
 
 To SSH into running container:
+
 ```
 docker exec -it --user dbsys test_mysql /bin/bash
 ```
@@ -188,16 +194,19 @@ docker exec -it --user root test_mysql /bin/bash
 ```
 
 To view log files of docker container:
+
 ```
 docker logs test_mysql
 ```
 
 To stop the container:
+
 ```
 docker stop test_mysql
 ```
 
 To delete the container:
+
 ```
 docker rm -f test_mysql
 ```
@@ -256,3 +265,10 @@ The labs will use the following databases:
 - uscustomers
 
 Congratulations, you have completed this introduction lab!
+
+
+**[TODO]**
+
+Now that you understand your environment, it is time to “hook up” JBoss Developer Studio to the JBoss Data Virtualization server instance.
+
+If the Servers pane is not already visible in JBoss Developer Studio, you can open it by Window ▸ Show View ▸ Other ▸ Server ▸ Servers. The Show View window is presented below.
