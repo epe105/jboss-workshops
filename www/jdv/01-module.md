@@ -1,11 +1,23 @@
 ---
 layout: "module"
-title: "Prerequisites"
+subtitle: "Introduction"
 ---
 
-The purpose of this module is to introduce you to your JBoss Data Virtualization (JDV) lab environment.
+# Overview
 
-## 1. Prerequisites
+Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:
+
+1. Connect: Access data from multiple, heterogeneous data sources.
+
+2. Compose: Create reusable, business-friendly logical data models and views by combining and transforming data.
+
+3. Consume: Make unified data easily consumable through open standard interfaces.
+
+![JDV Architecture]({{ "/images/jdv/architecture.png" | prepend: site.baseurl }})
+
+:information_source: If we provided you a lab environment for this workshop, we already set all this up for you — so you can skip everything below.
+
+## Prerequisites
 
 - Access to the Internet and the following ports:
   - SSH (22)
@@ -18,10 +30,6 @@ The purpose of this module is to introduce you to your JBoss Data Virtualization
 - OpenJDK or Oracle JDK version 1.7 or newer.
 
 **[NOTE]** Prerequisites with respect to PostgreSQL server, MariaDB server or MySQL server are optional. We will use the embedded H2 database which is installed in the JDV environment by default as part of JBoss EAP for you convenience.
-
-## 2. Remote Lab Environment
-
-**[TODO]**
 
 ## 3. JBoss Developer Studio
 
@@ -233,7 +241,7 @@ This network is inaccessible to remote clients. Subsequently, the Docker contain
 
 The following diagram depicts this Docker network proxy mechanism:
 
-![JDV Container Networking]({{ "/images/JDV_Container_Networking.png" | prepend: site.baseurl }})
+![JDV Container Networking]({{ "/images/jdv/container_networking.png" | prepend: site.baseurl }})
 
 ## 5. Setup Demo Database (optional)
 
@@ -264,10 +272,3 @@ The labs will use the following databases:
 - uscustomers
 
 Congratulations, you have completed this introduction lab!
-
-
-**[TODO]**
-
-Now that you understand your environment, it is time to “hook up” JBoss Developer Studio to the JBoss Data Virtualization server instance.
-
-If the Servers pane is not already visible in JBoss Developer Studio, you can open it by Window ▸ Show View ▸ Other ▸ Server ▸ Servers. The Show View window is presented below.
