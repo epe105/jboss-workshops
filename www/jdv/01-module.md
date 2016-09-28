@@ -3,8 +3,6 @@ layout: "module"
 subtitle: "Introduction"
 ---
 
-## Overview
-
 Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:
 
 1. Connect: Access data from multiple, heterogeneous data sources.

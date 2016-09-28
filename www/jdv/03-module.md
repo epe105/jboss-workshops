@@ -3,8 +3,6 @@ layout: "module"
 subtitle: "JBoss Developer Studio"
 ---
 
-## JBoss Developer Studio
-
 JBoss Developer Studio (JBDS) is an integrated development environment (IDE) that integrates and certifies both tooling and runtime components by combining Eclipse, best-of-breed open source tools, and the JBoss Enterprise platform. You must have JBoss Developer Studio installed in your local development environment.
 
 Among many other uses, the Teiid Designer plugin for JBDS will be used extensively.

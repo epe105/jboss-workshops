@@ -3,8 +3,6 @@ layout: "module"
 subtitle: "Login & Tour of Guacamole"
 ---
 
-## Welcome to JDV!
-
 This lab provides a quick tour of the Guacamole VNC server to help you get familiar with lab environment along with some key terminology we will use in subsequent lab content.
 
 If you are already familiar with the basics of Docker you can skip this lab — after making sure you can login.
