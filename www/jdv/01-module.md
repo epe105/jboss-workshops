@@ -252,12 +252,12 @@ After starting the MySQL container, access the RDBMS via any `mysql` utility and
 **[NOTE]** The `mysql` utility is already installed on your host system if we provided you a lab environment for this workshop.
 
 1. Login to MySQL.
+
 ```
 mysql -u root -p -h 127.0.0.1 --port=#
 ```
 
 2. Go to the home (~) directory and load the `finanacials.sql` database.
-**[TODO]**
 
 3. If "Step 2" is successful the MySQL environment contains all necessary databases.
 
