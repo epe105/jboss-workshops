@@ -15,8 +15,6 @@ Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterpr
 
 ![JDV Architecture]({{ "/images/jdv/architecture.png" | prepend: site.baseurl }})
 
-:information_source: If we provided you a lab environment for this workshop, we already set all this up for you — so you can skip everything below.
-
 ## Prerequisites
 
 - Access to the Internet and the following ports:
@@ -31,15 +29,15 @@ Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterpr
 
 **[NOTE]** Prerequisites with respect to PostgreSQL server, MariaDB server or MySQL server are optional. We will use the embedded H2 database which is installed in the JDV environment by default as part of JBoss EAP for you convenience.
 
-## 3. JBoss Developer Studio
+## JBoss Developer Studio
 
 JBoss Developer Studio (JBDS) is an integrated development environment (IDE) that integrates and certifies both tooling and runtime components by combining Eclipse, best-of-breed open source tools, and the JBoss Enterprise platform. You must have JBoss Developer Studio installed in your local development environment.
 
 Among many other uses, the Teiid Designer plugin for JBDS will be used extensively.
 
-**[NOTE]** JBDS is already installed on your host system if we provided you a lab environment for this workshop.
+:information_source: If we provided you a lab environment for this workshop, we already set all this up for you — so you can skip this section.
 
-### 3.1. Download & Install
+### Download & Install
 
 This workshop requires the use of JBDS version 8.0 or more recent.
 
