@@ -3,9 +3,11 @@ layout: "module"
 subtitle: "Login & Tour of Guacamole"
 ---
 
-## Setup Demo Database (optional)
+## Setup Demo Database
 
-In order to use the labs we need to prepare one database. Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice. In the next paragraph we will describe how to install the database and how to load the demo data into the database.
+In order to use the labs we need to prepare one database.
+
+Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice. In the next paragraph we will describe how to instantiate the RDBMS container and load the demo data into it.
 
 ### Setup MySQL
 
@@ -30,5 +32,3 @@ The labs will use the following databases:
 - eucustomers
 - products
 - uscustomers
-
-Congratulations, you have completed this introduction lab!

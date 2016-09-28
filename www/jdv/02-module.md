@@ -16,6 +16,30 @@ We will be using the following terms throughout the workshop labs so here are so
 - Container — Your software wrapped in a complete filesystem containing everything it needs to run
 - Image — We are talking about Docker images; read-only and used to create containers
 
+## Accessing Guacamole
+
+[Guacamole](http://bit.ly/2dzB3b6) is an HTML5 web application that provides access to desktop environments using remote desktop protocols (such as VNC or RDP). **As long as you have access to a web browser, you have access to your machines.**
+
+Navigate to the login `${URI}` and login with the your user/password, both should be provided to you by your instructor.
+
+![Guacamole Login]({{ "/images/guac_login.png" | prepend: site.baseurl }})
+
+After logging in, you should see two groups, `term` and `vnc`.
+
+![Guacamole Welcome]({{ "/images/guac_welc.png" | prepend: site.baseurl }})
+
+Before clicking on the user's name under the `vnc` group, navigate to the user's settings page.
+
+![Guacamole Settings]({{ "/images/guac_setti.png" | prepend: site.baseurl }})
+
+And, select the "Text input" button under the **Default Input Method** section.
+
+![Guacamole Settings]({{ "/images/guac_input.png" | prepend: site.baseurl }})
+
+Return **Home** via the same drop down used to reach the settings page.
+
+Finally, click your user's name under the `vnc` group.
+
 ## JBoss Developer Studio
 
 JBoss Developer Studio (JBDS) is an integrated development environment (IDE) that integrates and certifies both tooling and runtime components by combining Eclipse, best-of-breed open source tools, and the JBoss Enterprise platform. You must have JBoss Developer Studio installed in your local development environment.
@@ -226,4 +250,4 @@ This network is inaccessible to remote clients. Subsequently, the Docker contain
 
 The following diagram depicts this Docker network proxy mechanism:
 
-![JDV Container Networking]({{ "/images/jdv/container_networking.png" | prepend: site.baseurl }})
+![JDV Container Networking]({{ "/images/jdv/container_network.png" | prepend: site.baseurl }})
