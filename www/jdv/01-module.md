@@ -41,6 +41,13 @@ Server  |  An enterprise ready, scalable, manageable, runtime for the Query Engi
 Connectors  | JDV Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap.
 Tools  |  JDV Server includes development and administration tools to define virtual databases containing views, procedures or even dynamic XML documents, monitor & manage any number of servers, and automate administrative & testing tasks.
 
+## Key Terms
+
+We will be using the following terms throughout the workshop labs so here are some basic definitions you should be familiar with. And you’ll learn more terms along the way, but these are the basics to get you started.
+
+- Container — Your software wrapped in a complete filesystem containing everything it needs to run
+- Image — We are talking about Docker images; read-only and used to create containers
+
 ## Prerequisites
 
 - Access to the Internet and the following ports:
