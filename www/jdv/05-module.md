@@ -5,7 +5,9 @@ subtitle: "Start & Configure Demo Database"
 
 In order to use the labs we need to prepare one database.
 
-Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice. In the next paragraph we will describe how to instantiate the RDBMS container and load the demo data into it.
+Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice.
+
+In the next paragraph we will describe how to instantiate the RDBMS container and load the demo data into it.
 
 ### Setup MySQL
 
