@@ -45,7 +45,7 @@ JBDS can be downloaded from the Red Hat JBoss Developer Studio Overview page by 
 
 Once downloaded, refer to the instructions provided in the JBDS product [documentation](http://red.ht/2cBavc8) to install JBDS.
 
-### 3.2. JBDS Plugins Overview
+### JBDS Plugins Overview
 
 JBDS includes a variety of different plugins. The following is a list of the JBDS plugins that are needed for execution of this workshop:
 
@@ -71,7 +71,7 @@ JBDS includes a variety of different plugins. The following is a list of the JBD
 
     JBDS includes an out-of-the-box plugin called m2e to support Apache Maven enabled projects. No additional install of this plugin is necessary. The goal of the m2e project is to provide a first-class Apache Maven support in the Eclipse IDE, making it easier to edit a Maven project’s pom.xml and run a build from the IDE.
 
-### 3.3. Teiid Designer
+### Teiid Designer
 
 Included in the Integration Stack suite of JBDS plugins is the Teiid Designer. This is one of the primary developer tools provided by the JDV product and is used extensively in this workshop.
 
@@ -81,7 +81,7 @@ It is critical that the most recent version of this plugin is being used. Verify
 2. Navigate to: `Help` --> `Installation Details` --> `Installed Software`.
 3. Scroll down and verify that the version of Teiid plugins is at least `9.0.1.Final` or more recent.
 
-## 4. Docker Container Lifecycle
+## Docker Container Lifecycle
 
 Your lab environment includes an instance of JBoss Data Virtualization and the MySQL relational database. This software is containerized using Docker technology on a Red Hat Enterprise Linux (RHEL) host.
 
@@ -89,7 +89,7 @@ The operating system user on your remote JDV lab host has been given privledges 
 
 The following sections describe how to interact with your containerized software.
 
-### 4.1 Docker Images
+### Docker Images
 
 The `docker images` command can be executed to view Docker images that have already been created for you.
 
@@ -99,11 +99,11 @@ Open a terminal and execute the following:
 
 **[NOTE]** Both of these images are already installed on your host system if we provided you a lab environment for this workshop.
 
-### 4.2 JDV Container
+### JDV Container
 
 [ecwpz91/jboss-jdv-6](http://bit.ly/2crwLqk) — Docker image built using JBoss Data Virtualization release 6.3.4.
 
-#### 4.2.1 Usage
+#### Usage
 
 To boot in standalone mode:
 ```
@@ -149,7 +149,7 @@ To delete the container:
 docker rm -f test_jdv
 ```
 
-#### 4.2.2 Credentials
+#### Credentials
 
 | User | Password | Description | URL |
 | ------ | ------------ | ----------- | ---- |
@@ -159,7 +159,7 @@ docker rm -f test_jdv
 | teiidUser | jb0ssredhat! | JDBC Connection | |
 | modeshapeUser | jb0ssredhat! | ModeShape Rest Endpoint | http://localhost:6832/modeshape-rest |
 
-#### 4.2.3 Networking
+#### Networking
 
 | Port | Description |
 | ----- | -------------- |
@@ -169,11 +169,11 @@ docker rm -f test_jdv
 | 9999 | EAP Mgmt CLI |
 | 31000 | JDBC Connection |
 
-### 4.3 MySQL Container
+### MySQL Container
 
 [ecwpz91/mysql57](http://bit.ly/2dx97EU) — Docker image built using [MySQL](http://bit.ly/2cz3TZf) release 5.7.15.
 
-#### 4.3.1 Usage
+#### Usage
 
 To boot in standalone mode:
 
@@ -216,20 +216,20 @@ To delete the container:
 docker rm -f test_mysql
 ```
 
-#### 4.3.2 Credentials
+#### Credentials
 
 | User | Password | Description |
 | ------ | ------------ | ----------- |
 | root  | my-secret-pw | MySQL root user |
 | shadowman | r3dh4t1! | Default user |
 
-#### 4.3.3 Networking
+#### Networking
 
 | Port | Description |
 | ----- | -------------- |
 | 3306 | Default port |
 
-### 4.4 JDV Container Networking
+### Container Networking
 
 The MySQL and JDV runtimes execute within the confines of Docker containers. These Docker containers are started on a remote Red Hat Enterprise Linux (RHEL) 7 operating system.
 
@@ -241,11 +241,11 @@ The following diagram depicts this Docker network proxy mechanism:
 
 ![JDV Container Networking]({{ "/images/jdv/container_networking.png" | prepend: site.baseurl }})
 
-## 5. Setup Demo Database (optional)
+## Setup Demo Database (optional)
 
 In order to use the labs we need to prepare one database. Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice. In the next paragraph we will describe how to install the database and how to load the demo data into the database.
 
-### 5.2 Setup MySQL
+### Setup MySQL
 
 After starting the MySQL container, access the RDBMS via any `mysql` utility and perform the following commands.
 
