@@ -30,3 +30,9 @@ And, select the "Text input" button under the **Default Input Method** section.
 Return **Home** via the same drop down used to reach the settings page.
 
 Finally, click your user's name under the `vnc` group.
+
+![Guacamole Desktop]({{ "/images/guac_desk.png" | prepend: site.baseurl }})
+
+Once you see the user's desktop, you're ready to proceed to the next lab!
+
+In the event that this does not happen, please raise you hand :raising_hand: and an instructor will be by to help momentarily.

@@ -50,7 +50,8 @@ Included in the Integration Stack suite of JBDS plugins is the Teiid Designer. T
 It is critical that the most recent version of this plugin is being used. Verify the version of the Teiid Designer plugin via the following:
 
 1. In your local workstation, start JBDS.
+
+![Guacamole JDBS]({{ "/images/guac_jdbs.png" | prepend: site.baseurl }})
+
 2. Navigate to: `Help` --> `Installation Details` --> `Installed Software`.
 3. Scroll down and verify that the version of Teiid plugins is at least `9.0.1.Final` or more recent.
-
-## Launching JBDS!
