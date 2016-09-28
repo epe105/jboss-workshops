@@ -95,8 +95,6 @@ The `docker images` command can be executed to view Docker images that have alre
 
 Open a terminal and execute the following:
 
-**[TODO]**
-
 **[NOTE]** Both of these images are already installed on your host system if we provided you a lab environment for this workshop.
 
 ### JDV Container
@@ -106,6 +104,7 @@ Open a terminal and execute the following:
 #### Usage
 
 To boot in standalone mode:
+
 ```
 docker run -d -p 6832:8080 -p 9990:9990 -p 8787:8787 -p 9999:9999 -p 31000:31000 --name test_jdv ecwpz91/jboss-jdv-6
 ```
@@ -115,6 +114,7 @@ docker run -d -p 6832:8080 -p 9990:9990 -p 8787:8787 -p 9999:9999 -p 31000:31000
 Doing so allows remote clients to connect to the containerized JDV integration solution through port `6832`.
 
 To view console, open browser and goto:
+
 ```
 http://127.0.0.1:6832/
 ```
