@@ -12,11 +12,11 @@ paginate: 1
 
 # About/contact
 author:
-  name: Michael Surbey
-  vocation: Cloud Solutions Architect
-  email: msurbey@redhat.com
-  github_username:  ecwpz91
-  twitter_username: ecwpz91
+  name: Manny Evangelista
+  vocation: Solutions Architect
+  email: mevangel@redhat.com
+  github_username:  epe105
+  twitter_username:
   # url:  http://yourhomepage.com
 
 # Build settings
