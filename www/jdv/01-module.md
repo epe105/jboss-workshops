@@ -11,9 +11,11 @@ If you are already familiar with the basics of Docker you can skip this lab — 
 
 [Guacamole](http://bit.ly/2dzB3b6) is an HTML5 web application that provides access to desktop environments using remote desktop protocols (such as VNC or RDP). **As long as you have access to a web browser, you have access to your machines.**
 
-Navigate to the login `${URI}` and login with the your user/password, both should be provided to you by your instructor.
+Navigate to the login `${URI}` and login with the your user/password.
 
 ![Guacamole Login]({{ "/images/guac_login.png" | prepend: site.baseurl }})
+
+:information_source: Both should are provided to you by your instructor.
 
 After logging in, you should see two groups, `term` and `vnc`.
 

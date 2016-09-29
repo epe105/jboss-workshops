@@ -43,8 +43,8 @@ Tools  |  JDV Server includes development and administration tools to define vir
 
 We will be using the following terms throughout the workshop labs so here are some basic definitions you should be familiar with. And you’ll learn more terms along the way, but these are the basics to get you started.
 
-- Container — Your software wrapped in a complete filesystem containing everything it needs to run
-- Image — We are talking about Docker images; read-only and used to create containers
+- **Container** — Your software wrapped in a complete filesystem containing everything it needs to run.
+- **Image** — We are talking about Docker images; read-only and used to create containers.
 
 ## Prerequisites
 
