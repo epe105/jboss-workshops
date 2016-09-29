@@ -41,7 +41,7 @@ JBDS includes a variety of different plugins. The following is a list of the JBD
 
 It is critical that the most recent version of this plugin is being used. Verify the version of the Teiid Designer plugin via the following:
 
-In your remote workstation, start JBDS.
+On your workstation, start JBDS.
 
 ![Guacamole JDBS]({{ "/images/jdv/02-jbds_launch.png" | prepend: site.baseurl }})
 
