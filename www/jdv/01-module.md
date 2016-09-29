@@ -31,7 +31,7 @@ And, select the "Text input" button under the **Default Input Method** section.
 
 Return **Home** via the same drop down used to reach the settings page.
 
-Finally, click your user's name under the `vnc` group.
+Then click your user's name under the `vnc` group.
 
 ![Guacamole Desktop]({{ "/images/guac_desk.png" | prepend: site.baseurl }})
 

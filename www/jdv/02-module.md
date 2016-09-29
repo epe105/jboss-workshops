@@ -3,33 +3,27 @@ layout: "module"
 subtitle: "JBoss Developer Studio"
 ---
 
-JBoss Developer Studio (JBDS) is an integrated development environment (IDE) that integrates and certifies both tooling and runtime components by combining Eclipse, best-of-breed open source tools, and the JBoss Enterprise platform. You must have JBoss Developer Studio installed in your local development environment.
+JBoss Developer Studio (JBDS) is an Integrated Development Environment (IDE) that integrates and certifies both tooling and runtime components by combining Eclipse, best-of-breed open source tools, and the JBoss Enterprise platform. You must have JBoss Developer Studio installed in your local development environment.
 
 Among many other uses, the Teiid Designer plugin for JBDS will be used extensively.
 
-:information_source: If we provided you a lab environment for this workshop, we already set all this up for you!
-
 ### Download & Install
 
-This workshop requires the use of JBDS version 8.0 or more recent.
+:information_source: If we provided you a lab environment for this workshop, we already set all this up for you.
 
-JBDS can be downloaded from the Red Hat JBoss Developer Studio Overview page by clicking the "[Get Started](http://red.ht/2diqdZq)" button on the hyperlinked page.
+This workshop requires the use of JBDS version 8.0 or later.
 
-Once downloaded, refer to the instructions provided in the JBDS product [documentation](http://red.ht/2cBavc8) to install JBDS.
+JBDS can be downloaded from the [Red Hat JBoss Developer Studio Overview](http://red.ht/2diqdZq) page by clicking the "Get Started" button.
+
+Once downloaded, refer to the instructions provided in the JBDS product [documentation](http://red.ht/2cBavc8) to continue installation.
 
 ### JBDS Plugins Overview
 
 JBDS includes a variety of different plugins. The following is a list of the JBDS plugins that are needed for execution of this workshop:
 
-1. **Integration Stack Suite**
+1. [**Integration Stack Suite**](http://red.ht/2cOiyAQ)
 
-    The Integration Stack Suite of plug-ins is of particular importance for the JDV course.
-
-    The Integration Stack Suite of plug-ins is not included out-of-the-box with JBDS. Instead, the suite needs to be manually installed and is different between JBDS version 7.1 and 8.0.
-
-    For version 7.1 of JBDS, follow the installation procedures in the JBDS IntegrationStack documentation.
-
-    For version 8.0 of JBDS, please see the section of this guide entitled Integration Stack Suite Plugins for JBDS 8.0
+    Included in the Integration Stack suite of JBDS plugins is the Teiid Designer. This is one of the primary developer tools provided by the JDV product and is used extensively in this workshop.
 
 2. **Remote System Explorer Plugin**
 
@@ -45,13 +39,18 @@ JBDS includes a variety of different plugins. The following is a list of the JBD
 
 ### Teiid Designer
 
-Included in the Integration Stack suite of JBDS plugins is the Teiid Designer. This is one of the primary developer tools provided by the JDV product and is used extensively in this workshop.
-
 It is critical that the most recent version of this plugin is being used. Verify the version of the Teiid Designer plugin via the following:
 
-1. In your local workstation, start JBDS.
+In your remote workstation, start JBDS.
 
-![Guacamole JDBS]({{ "/images/guac_jdbs.png" | prepend: site.baseurl }})
+![Guacamole JDBS]({{ "/images/jdv/02-jbds_launch.png" | prepend: site.baseurl }})
 
-2. Navigate to: `Help` --> `Installation Details` --> `Installed Software`.
-3. Scroll down and verify that the version of Teiid plugins is at least `9.0.1.Final` or more recent.
+Navigate to `Help` → `Installation Details` → `Installed Software`.
+
+![JDBS Installation Details]({{ "/images/jdv/02-jbds_instd.png" | prepend: site.baseurl }})
+
+![Teiid Plugin Version]({{ "/images/jdv/02-jbds_teiid.png" | prepend: site.baseurl }})
+
+Scroll down and verify that the version of Teiid plugins is at least `9.0.1.Final` or later.
+
+:clap: Congratulations you've completed this lab.
