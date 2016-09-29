@@ -9,7 +9,7 @@ Among many other uses, the Teiid Designer plugin for JBDS will be used extensive
 
 :information_source: If we provided you a lab environment for this workshop, we already set all this up for you!
 
-### Download \& Install
+### Download & Install
 
 This workshop requires the use of JBDS version 8.0 or more recent.
 
