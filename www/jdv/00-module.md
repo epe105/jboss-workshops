@@ -11,7 +11,7 @@ Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterpr
 
 3. Consume: Make unified data easily consumable through open standard interfaces.
 
-![JDV Architecture]({{ "/images/jdv/architecture.png" | prepend: site.baseurl }})
+![JDV Architecture]({{ "/images/jdv/00-jdv_arch.png" | prepend: site.baseurl }})
 
 JDV includes:
 
@@ -29,7 +29,7 @@ JDV is based on the following community projects:
 
 The figure below depicts the architectural overview of JDV:
 
-![JDV Server]({{ "/images/jdv/server.png" | prepend: site.baseurl }})
+![JDV Server]({{ "/images/jdv/00-jdv_server.png" | prepend: site.baseurl }})
 
 Component  | Description
 -----------| -----------
