@@ -15,7 +15,7 @@ Navigate to the login `${URI}` and login with the your user/password.
 
 ![Guacamole Login]({{ "/images/guac_login.png" | prepend: site.baseurl }})
 
-:information_source: Both should are provided to you by your instructor.
+:information_source: Both should have been provided to you by your instructor.
 
 After logging in, you should see two groups, `term` and `vnc`.
 
