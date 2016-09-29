@@ -1,57 +1,162 @@
 ---
 layout: "module"
-subtitle: "JBoss Developer Studio"
+subtitle: "Docker Container Lifecycle"
 ---
 
-JBoss Developer Studio (JBDS) is an integrated development environment (IDE) that integrates and certifies both tooling and runtime components by combining Eclipse, best-of-breed open source tools, and the JBoss Enterprise platform. You must have JBoss Developer Studio installed in your local development environment.
+Your lab environment includes an instance of JBoss Data Virtualization and the MySQL relational database. This software is containerized using Docker technology on a Red Hat Enterprise Linux (RHEL) host.
 
-Among many other uses, the Teiid Designer plugin for JBDS will be used extensively.
+The operating system user on your remote JDV lab host has been given privledges to administer the lifecyle of docker images and containers. Therefore, root access to the operating system isn't needed.
 
-:information_source: If we provided you a lab environment for this workshop, we already set all this up for you!
+The following sections describe how to interact with your containerized software.
 
-### Download & Install
+### Docker Images
 
-This workshop requires the use of JBDS version 8.0 or more recent.
+The `docker images` command can be executed to view Docker images that have already been created for you.
 
-JBDS can be downloaded from the Red Hat JBoss Developer Studio Overview page by clicking the "[Get Started](http://red.ht/2diqdZq)" button on the hyperlinked page.
+Open a terminal and execute the following:
 
-Once downloaded, refer to the instructions provided in the JBDS product [documentation](http://red.ht/2cBavc8) to install JBDS.
+**[NOTE]** Both of these images are already installed on your host system if we provided you a lab environment for this workshop.
 
-### JBDS Plugins Overview
+### JDV Container
 
-JBDS includes a variety of different plugins. The following is a list of the JBDS plugins that are needed for execution of this workshop:
+[ecwpz91/jboss-jdv-6](http://bit.ly/2crwLqk) — Docker image built using JBoss Data Virtualization release 6.3.4.
 
-1. **Integration Stack Suite**
+#### Usage
 
-    The Integration Stack Suite of plug-ins is of particular importance for the JDV course.
+To boot in standalone mode:
 
-    The Integration Stack Suite of plug-ins is not included out-of-the-box with JBDS. Instead, the suite needs to be manually installed and is different between JBDS version 7.1 and 8.0.
+```
+docker run -d -p 6832:8080 -p 9990:9990 -p 8787:8787 -p 9999:9999 -p 31000:31000 --name test_jdv ecwpz91/jboss-jdv-6
+```
 
-    For version 7.1 of JBDS, follow the installation procedures in the JBDS IntegrationStack documentation.
+**[NOTE]** In addition to starting a container of the `ecwpz91/jboss-jdv-6` image, the above command maps port `6832` on the host operating system to the new container’s port `8080` (and so on).
 
-    For version 8.0 of JBDS, please see the section of this guide entitled Integration Stack Suite Plugins for JBDS 8.0
+Doing so allows remote clients to connect to the containerized JDV integration solution through port `6832`.
 
-2. **Remote System Explorer Plugin**
+To view console, open browser and goto:
 
-    JBDS includes an out-of-the-box plugin for creating ssh / scp connections to remote SSH-enabled servers called: Remote System Explorer. No additional install of this plugin is necessary.
+```
+http://127.0.0.1:6832/
+```
 
-3. **Eclipse eGit Plugin**
+To SSH into running container:
 
-    JBDS includes an out-of-the-box plugin called eGit to support git enabled projects. No additional install of this plugin is necessary. Git is a distributed SCM, which means every developer has a full copy of all history of every revision of the code, making queries against the history very fast and versatile.
+```
+docker exec -it --user jboss test_jdv /bin/bash
+```
 
-4. **Eclipse m2e Plugin**
+*Or*
 
-    JBDS includes an out-of-the-box plugin called m2e to support Apache Maven enabled projects. No additional install of this plugin is necessary. The goal of the m2e project is to provide a first-class Apache Maven support in the Eclipse IDE, making it easier to edit a Maven project’s pom.xml and run a build from the IDE.
+```
+docker exec -it --user root test_jdv /bin/bash
+```
 
-### Teiid Designer
+To view log files of docker container:
 
-Included in the Integration Stack suite of JBDS plugins is the Teiid Designer. This is one of the primary developer tools provided by the JDV product and is used extensively in this workshop.
+```
+docker logs test_jdv
+```
 
-It is critical that the most recent version of this plugin is being used. Verify the version of the Teiid Designer plugin via the following:
+To stop the container:
 
-1. In your local workstation, start JBDS.
+```
+docker stop test_jdv
+```
 
-![Guacamole JDBS]({{ "/images/guac_jdbs.png" | prepend: site.baseurl }})
+To delete the container:
 
-2. Navigate to: `Help` --> `Installation Details` --> `Installed Software`.
-3. Scroll down and verify that the version of Teiid plugins is at least `9.0.1.Final` or more recent.
+```
+docker rm -f test_jdv
+```
+
+#### Credentials
+
+| User | Password | Description | URL |
+| ------ | ------------ | ----------- | ---- |
+| admin | jb0ssredhat! | EAP Mgmt Console | http://localhost:9990/console |
+| admin | jb0ssredhat! | EAP Mgmt CLI | |
+| dashboardAdmin | jb0ssredhat! | Teiid Dashboard | http://localhost:6832/dashboard |
+| teiidUser | jb0ssredhat! | JDBC Connection | |
+| modeshapeUser | jb0ssredhat! | ModeShape Rest Endpoint | http://localhost:6832/modeshape-rest |
+
+#### Networking
+
+| Port | Description |
+| ----- | -------------- |
+| 8080 | Web Application |
+| 9990 | EAP Mgmt Console |
+| 8787 |  EAP Remote Debug |
+| 9999 | EAP Mgmt CLI |
+| 31000 | JDBC Connection |
+
+### MySQL Container
+
+[ecwpz91/mysql57](http://bit.ly/2dx97EU) — Docker image built using [MySQL](http://bit.ly/2cz3TZf) release 5.7.15.
+
+#### Usage
+
+To boot in standalone mode:
+
+```
+docker run -d -p 6432:3306 --name test_mysql ecwpz91/mysql57
+```
+
+**[NOTE]** In addition to starting a container of the `ecwpz91/mysql57` image, the above command maps port `6432` on the host operating system to the new container’s port `3306`.
+
+Doing so allows remote mysql clients to connect to the containerized MySQL Relational Database Management System (RDBMS) through port `6432`.
+
+
+To SSH into running container:
+
+```
+docker exec -it --user dbsys test_mysql /bin/bash
+```
+
+*Or*
+
+```
+docker exec -it --user root test_mysql /bin/bash
+```
+
+To view log files of docker container:
+
+```
+docker logs test_mysql
+```
+
+To stop the container:
+
+```
+docker stop test_mysql
+```
+
+To delete the container:
+
+```
+docker rm -f test_mysql
+```
+
+#### Credentials
+
+| User | Password | Description |
+| ------ | ------------ | ----------- |
+| root  | my-secret-pw | MySQL root user |
+| shadowman | r3dh4t1! | Default user |
+
+#### Networking
+
+| Port | Description |
+| ----- | -------------- |
+| 3306 | Default port |
+
+### Container Networking
+
+The MySQL and JDV runtimes execute within the confines of Docker containers. These Docker containers are started on a remote Red Hat Enterprise Linux (RHEL) 7 operating system.
+
+The Docker daemon running on the RHEL7 remote host creates an internal network to allow for communication between containers. Both the JDV and PostgreSQL containers are assigned IP addresses from this internal network.
+
+This network is inaccessible to remote clients. Subsequently, the Docker containers executing on the RHEL7 host are initially no accessible to remote clients. Docker, however, provides the ability to proxy network ports from the Docker containers to ports exposed by the RHEL7 host. This network proxy mechanism is leveraged to allow remote JDBC/http/EAP management clients to invoke the remote Docker containers that typically would be inaccessible.
+
+The following diagram depicts this Docker network proxy mechanism:
+
+![JDV Container Networking]({{ "/images/jdv/container_network.png" | prepend: site.baseurl }})

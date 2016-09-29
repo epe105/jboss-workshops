@@ -1,57 +1,38 @@
 ---
 layout: "module"
-subtitle: "Introduction"
+subtitle: "Login & Tour of Guacamole"
 ---
 
-Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:
+This lab provides a quick tour of the Guacamole VNC server to help you get familiar with lab environment along with some key terminology we will use in subsequent lab content.
 
-1. Connect: Access data from multiple, heterogeneous data sources.
+If you are already familiar with the basics of Docker you can skip this lab — after making sure you can login.
 
-2. Compose: Create reusable, business-friendly logical data models and views by combining and transforming data.
+## Accessing Guacamole
 
-3. Consume: Make unified data easily consumable through open standard interfaces.
+[Guacamole](http://bit.ly/2dzB3b6) is an HTML5 web application that provides access to desktop environments using remote desktop protocols (such as VNC or RDP). **As long as you have access to a web browser, you have access to your machines.**
 
-![JDV Architecture]({{ "/images/jdv/architecture.png" | prepend: site.baseurl }})
+Navigate to the login `${URI}` and login with the your user/password, both should be provided to you by your instructor.
 
-JDV includes:
+![Guacamole Login]({{ "/images/guac_login.png" | prepend: site.baseurl }})
 
-- Tools for creating data views that are accessible through standard protocols. For those who are already familiar with JDV one of the tools is the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS).
+After logging in, you should see two groups, `term` and `vnc`.
 
-- A robust runtime environment that provides enterprise-class performance, data integrity, and security (the JDV Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).
+![Guacamole Welcome]({{ "/images/guac_welc.png" | prepend: site.baseurl }})
 
-- A repository for storing metadata (ModeShape)
+Before clicking on the user's name under the `vnc` group, navigate to the user's settings page.
 
-JDV is based on the following community projects:
+![Guacamole Settings]({{ "/images/guac_setti.png" | prepend: site.baseurl }})
 
-- [Teiid](http://red.ht/2d5nn8S)
-- [Teiid Designer](http://red.ht/2duh9SE)
-- [ModeShape](http://red.ht/2ds6xnG)
+And, select the "Text input" button under the **Default Input Method** section.
 
-The figure below depicts the architectural overview of JDV:
+![Guacamole Settings]({{ "/images/guac_input.png" | prepend: site.baseurl }})
 
-![JDV Server]({{ "/images/jdv/server.png" | prepend: site.baseurl }})
+Return **Home** via the same drop down used to reach the settings page.
 
-Component  | Description
------------| -----------
-Query Engine  |  The heart of JDV Server is a high-performance query engine that processes relational, XML, XQuery and procedural queries from federated datasources. Features include support for homogeneous schemas, heterogeneous schemas, transactions, and user defined.
-Embedded  |  An easy-to-use JDBC Driver that can embed the Query Engine in any Java application.
-Server  |  An enterprise ready, scalable, manageable, runtime for the Query Engine that runs inside JBoss EAP that provides additional security, fault-tolerance, and administrative features.
-Connectors  | JDV Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap.
-Tools  |  JDV Server includes development and administration tools to define virtual databases containing views, procedures or even dynamic XML documents, monitor & manage any number of servers, and automate administrative & testing tasks.
+Finally, click your user's name under the `vnc` group.
 
-## Key Terms
+![Guacamole Desktop]({{ "/images/guac_desk.png" | prepend: site.baseurl }})
 
-We will be using the following terms throughout the workshop labs so here are some basic definitions you should be familiar with. And you’ll learn more terms along the way, but these are the basics to get you started.
+Once you see the user's desktop, you're ready to proceed to the next lab!
 
-- Container — Your software wrapped in a complete filesystem containing everything it needs to run
-- Image — We are talking about Docker images; read-only and used to create containers
-
-## Prerequisites
-
-- Access to the Internet and the following ports:
-  - HTTP (80)
-  - HTTPS (443)
-- Experience with [SSH](http://bit.ly/2dx8P0G) and the the Bourne Again SHell (bash).
-- Experience with [Git](http://bit.ly/2cTgp4D).
-- Experience with [Docker](http://bit.ly/2dhG5LB).
-- Experience with [PostgreSQL](https://www.postgresql.org/), [MariaDB](http://bit.ly/2d7veC7), or [MySQL](http://bit.ly/2cz3TZf) server.
+In the event that this does not happen, please raise you hand :raising_hand: and an instructor will be by to help momentarily.

@@ -1,170 +1,30 @@
 ---
 layout: "module"
-subtitle: "Setup Demo Database"
+subtitle: "The Teiid Designer"
 ---
 
-In order to use the labs we need to prepare one database.
+To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective. To open the “Teiid Designer” perspective, first select Window ▸ Open Perspective ▸ Other…​ in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.
 
-Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice.
+**[INSERT_IMAGE_HERE]**
 
-In the next paragraph we will describe how to instantiate the RDBMS container and load the demo data into it.
+Select Teiid Designer from the perspective list as shown below.
 
-## Setup PostgreSQL
+**[INSERT_IMAGE_HERE]**
 
-The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See [documentation](http://bit.ly/2cD7Pen) for more information and downloads.
+Click OK. This will bring you to a screen that looks like this:
 
-Post-install steps:
+**[INSERT_IMAGE_HERE]**
 
-If *nix or Mac OS X switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.
+Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid. In the Server tab open the tree node of Red Hat JBoss Data Virtualization 6.3.0 by clicking on arrow. This will set the Default Server automaticaly.
 
-```
-$ su postgres
-```
+Click on the Red Hat JBoss Data Virtualization 6.3.0 link in the Default Server window and then click tab name Teiid Instance.
 
-Go to the [jdv-1.0.1/dv-docker/demo](http://bit.ly/2d88sxE) directory and run the following command:
+For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below. As a “sanity” check, be sure to click the "Test Administration Connection" and "Test JDBC Connection" links. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.
 
-```
-$ psql -a -f financials-psql.sql
-```
+JBDS should look like the following illustration.
 
-If Step 2 is successfully executed the the PostgreSQL environment contains the following databases. Hint: start the psql command line utility and type the “\l” to list the databases in PostgreSQL database.
+**[INSERT_IMAGE_HERE]**
 
-```
-$ psql
-psql (9.4.4, server 9.4.9)
-Type "help" for help.
+You can now begin creating your own Red Hat JBoss Data Virtualization projects.
 
-postgres=# \l
-                               List of databases
-     Name      |  Owner   | Encoding  | Collate | Ctype |   Access privileges
----------------+----------+-----------+---------+-------+-----------------------
- apaccustomers | postgres | SQL_ASCII | C       | C     |
- brokerinfo    | postgres | SQL_ASCII | C       | C     |
- eucustomers   | postgres | SQL_ASCII | C       | C     |
- postgres      | postgres | SQL_ASCII | C       | C     |
- products      | postgres | SQL_ASCII | C       | C     |
- rhq           | rhqadmin | SQL_ASCII | C       | C     |
- template0     | postgres | SQL_ASCII | C       | C     | =c/postgres          +
-               |          |           |         |       | postgres=CTc/postgres
- template1     | postgres | SQL_ASCII | C       | C     | =c/postgres          +
-               |          |           |         |       | postgres=CTc/postgres
- uscustomers   | postgres | SQL_ASCII | C       | C     |
-(9 rows)
-
-postgres=# \q
-```
-
-## Setup MariaDB
-
-The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See [documentation](http://bit.ly/2d5TJjG) for more information and downloads.
-
-:information_source: There is no binary package available for Mac OS X users, but it is possible to install MariaDB using the homebrew package described on this [page](http://bit.ly/2dswq6M).
-
-Post-install steps
-
-After the installation completes and using *nix, start MariaDB with:
-
-```
-$ sudo /etc/init.d/mysql start
-```
-
-Go to the [jdv-1.0.1/dv-docker/demo](http://bit.ly/2d88sxE) directory and run the following command:
-
-```
-$ sudo mysql < financials-mysql.sql
-```
-
-If Step 2 is successfully executed the MariaDB environment contains the following databases.
-
-```
-sudo mysql
-Password:
-
-mysql> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| apaccustomers      |
-| brokerinfo         |
-| eucustomers        |
-| mysql              |
-| performance_schema |
-| products           |
-| test               |
-| uscustomers        |
-+--------------------+
-9 rows in set (0.02 sec)
-
-mysql> exit
-Bye
-```
-
-## Setup MySQL
-
-The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See [documentation](http://bit.ly/2cCEoUL) for more information and downloads.
-
-Post-install steps
-
-If *nix or Mac OS X go to the /usr/local/mysql directory and start mysqld_safe
-
-```
-$ cd /usr/local/mysql
-$ sudo ./bin/mysqld_safe
-```
-
-Go to the [jdv-1.0.1/dv-docker/demo](http://bit.ly/2d88sxE) directory and run the following command:
-
-```
-$ sudo /usr/local/mysql/bin/mysql < financials-mysql.sql
-```
-
-If Step 2 is successfully executed the MariaDB environment contains the following databases.
-
-```
-sudo /usr/local/mysql/bin/mysql
-Password:
-
-mysql> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| apaccustomers      |
-| brokerinfo         |
-| eucustomers        |
-| mysql              |
-| performance_schema |
-| products           |
-| test               |
-| uscustomers        |
-+--------------------+
-9 rows in set (0.02 sec)
-
-mysql> exit
-Bye
-```
-
-After starting the MySQL container, access the RDBMS via any `mysql` utility and perform the following commands.
-
-**[NOTE]** The `mysql` utility is already installed on your host system if we provided you a lab environment for this workshop.
-
-1. Login to MySQL.
-
-```
-mysql -u root -p -h 127.0.0.1 --port=#
-```
-
-2. Go to the home (~) directory and load the `finanacials.sql` database.
-
-3. If "Step 2" is successful the MySQL environment contains all necessary databases.
-
-The labs will use the following databases:
-
-- apaccustomer
-- brokerinfo
-- eucustomers
-- products
-- uscustomers
-
-Congratulations, you have completed this introduction lab.
+Congratulations, you have now completed this lab.

@@ -1,162 +1,170 @@
 ---
 layout: "module"
-subtitle: "Docker Container Lifecycle"
+subtitle: "Setup Demo Database"
 ---
 
-Your lab environment includes an instance of JBoss Data Virtualization and the MySQL relational database. This software is containerized using Docker technology on a Red Hat Enterprise Linux (RHEL) host.
+In order to use the labs we need to prepare one database.
 
-The operating system user on your remote JDV lab host has been given privledges to administer the lifecyle of docker images and containers. Therefore, root access to the operating system isn't needed.
+Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice.
 
-The following sections describe how to interact with your containerized software.
+In the next paragraph we will describe how to instantiate the RDBMS container and load the demo data into it.
 
-### Docker Images
+## Setup PostgreSQL
 
-The `docker images` command can be executed to view Docker images that have already been created for you.
+The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See [documentation](http://bit.ly/2cD7Pen) for more information and downloads.
 
-Open a terminal and execute the following:
+Post-install steps:
 
-**[NOTE]** Both of these images are already installed on your host system if we provided you a lab environment for this workshop.
-
-### JDV Container
-
-[ecwpz91/jboss-jdv-6](http://bit.ly/2crwLqk) — Docker image built using JBoss Data Virtualization release 6.3.4.
-
-#### Usage
-
-To boot in standalone mode:
+If *nix or Mac OS X switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.
 
 ```
-docker run -d -p 6832:8080 -p 9990:9990 -p 8787:8787 -p 9999:9999 -p 31000:31000 --name test_jdv ecwpz91/jboss-jdv-6
+$ su postgres
 ```
 
-**[NOTE]** In addition to starting a container of the `ecwpz91/jboss-jdv-6` image, the above command maps port `6832` on the host operating system to the new container’s port `8080` (and so on).
-
-Doing so allows remote clients to connect to the containerized JDV integration solution through port `6832`.
-
-To view console, open browser and goto:
+Go to the [jdv-1.0.1/dv-docker/demo](http://bit.ly/2d88sxE) directory and run the following command:
 
 ```
-http://127.0.0.1:6832/
+$ psql -a -f financials-psql.sql
 ```
 
-To SSH into running container:
+If Step 2 is successfully executed the the PostgreSQL environment contains the following databases. Hint: start the psql command line utility and type the “\l” to list the databases in PostgreSQL database.
 
 ```
-docker exec -it --user jboss test_jdv /bin/bash
+$ psql
+psql (9.4.4, server 9.4.9)
+Type "help" for help.
+
+postgres=# \l
+                               List of databases
+     Name      |  Owner   | Encoding  | Collate | Ctype |   Access privileges
+---------------+----------+-----------+---------+-------+-----------------------
+ apaccustomers | postgres | SQL_ASCII | C       | C     |
+ brokerinfo    | postgres | SQL_ASCII | C       | C     |
+ eucustomers   | postgres | SQL_ASCII | C       | C     |
+ postgres      | postgres | SQL_ASCII | C       | C     |
+ products      | postgres | SQL_ASCII | C       | C     |
+ rhq           | rhqadmin | SQL_ASCII | C       | C     |
+ template0     | postgres | SQL_ASCII | C       | C     | =c/postgres          +
+               |          |           |         |       | postgres=CTc/postgres
+ template1     | postgres | SQL_ASCII | C       | C     | =c/postgres          +
+               |          |           |         |       | postgres=CTc/postgres
+ uscustomers   | postgres | SQL_ASCII | C       | C     |
+(9 rows)
+
+postgres=# \q
 ```
 
-*Or*
+## Setup MariaDB
+
+The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See [documentation](http://bit.ly/2d5TJjG) for more information and downloads.
+
+:information_source: There is no binary package available for Mac OS X users, but it is possible to install MariaDB using the homebrew package described on this [page](http://bit.ly/2dswq6M).
+
+Post-install steps
+
+After the installation completes and using *nix, start MariaDB with:
 
 ```
-docker exec -it --user root test_jdv /bin/bash
+$ sudo /etc/init.d/mysql start
 ```
 
-To view log files of docker container:
+Go to the [jdv-1.0.1/dv-docker/demo](http://bit.ly/2d88sxE) directory and run the following command:
 
 ```
-docker logs test_jdv
+$ sudo mysql < financials-mysql.sql
 ```
 
-To stop the container:
+If Step 2 is successfully executed the MariaDB environment contains the following databases.
 
 ```
-docker stop test_jdv
+sudo mysql
+Password:
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| apaccustomers      |
+| brokerinfo         |
+| eucustomers        |
+| mysql              |
+| performance_schema |
+| products           |
+| test               |
+| uscustomers        |
++--------------------+
+9 rows in set (0.02 sec)
+
+mysql> exit
+Bye
 ```
 
-To delete the container:
+## Setup MySQL
+
+The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See [documentation](http://bit.ly/2cCEoUL) for more information and downloads.
+
+Post-install steps
+
+If *nix or Mac OS X go to the /usr/local/mysql directory and start mysqld_safe
 
 ```
-docker rm -f test_jdv
+$ cd /usr/local/mysql
+$ sudo ./bin/mysqld_safe
 ```
 
-#### Credentials
-
-| User | Password | Description | URL |
-| ------ | ------------ | ----------- | ---- |
-| admin | jb0ssredhat! | EAP Mgmt Console | http://localhost:9990/console |
-| admin | jb0ssredhat! | EAP Mgmt CLI | |
-| dashboardAdmin | jb0ssredhat! | Teiid Dashboard | http://localhost:6832/dashboard |
-| teiidUser | jb0ssredhat! | JDBC Connection | |
-| modeshapeUser | jb0ssredhat! | ModeShape Rest Endpoint | http://localhost:6832/modeshape-rest |
-
-#### Networking
-
-| Port | Description |
-| ----- | -------------- |
-| 8080 | Web Application |
-| 9990 | EAP Mgmt Console |
-| 8787 |  EAP Remote Debug |
-| 9999 | EAP Mgmt CLI |
-| 31000 | JDBC Connection |
-
-### MySQL Container
-
-[ecwpz91/mysql57](http://bit.ly/2dx97EU) — Docker image built using [MySQL](http://bit.ly/2cz3TZf) release 5.7.15.
-
-#### Usage
-
-To boot in standalone mode:
+Go to the [jdv-1.0.1/dv-docker/demo](http://bit.ly/2d88sxE) directory and run the following command:
 
 ```
-docker run -d -p 6432:3306 --name test_mysql ecwpz91/mysql57
+$ sudo /usr/local/mysql/bin/mysql < financials-mysql.sql
 ```
 
-**[NOTE]** In addition to starting a container of the `ecwpz91/mysql57` image, the above command maps port `6432` on the host operating system to the new container’s port `3306`.
-
-Doing so allows remote mysql clients to connect to the containerized MySQL Relational Database Management System (RDBMS) through port `6432`.
-
-
-To SSH into running container:
+If Step 2 is successfully executed the MariaDB environment contains the following databases.
 
 ```
-docker exec -it --user dbsys test_mysql /bin/bash
+sudo /usr/local/mysql/bin/mysql
+Password:
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| apaccustomers      |
+| brokerinfo         |
+| eucustomers        |
+| mysql              |
+| performance_schema |
+| products           |
+| test               |
+| uscustomers        |
++--------------------+
+9 rows in set (0.02 sec)
+
+mysql> exit
+Bye
 ```
 
-*Or*
+After starting the MySQL container, access the RDBMS via any `mysql` utility and perform the following commands.
+
+**[NOTE]** The `mysql` utility is already installed on your host system if we provided you a lab environment for this workshop.
+
+1. Login to MySQL.
 
 ```
-docker exec -it --user root test_mysql /bin/bash
+mysql -u root -p -h 127.0.0.1 --port=#
 ```
 
-To view log files of docker container:
+2. Go to the home (~) directory and load the `finanacials.sql` database.
 
-```
-docker logs test_mysql
-```
+3. If "Step 2" is successful the MySQL environment contains all necessary databases.
 
-To stop the container:
+The labs will use the following databases:
 
-```
-docker stop test_mysql
-```
+- apaccustomer
+- brokerinfo
+- eucustomers
+- products
+- uscustomers
 
-To delete the container:
-
-```
-docker rm -f test_mysql
-```
-
-#### Credentials
-
-| User | Password | Description |
-| ------ | ------------ | ----------- |
-| root  | my-secret-pw | MySQL root user |
-| shadowman | r3dh4t1! | Default user |
-
-#### Networking
-
-| Port | Description |
-| ----- | -------------- |
-| 3306 | Default port |
-
-### Container Networking
-
-The MySQL and JDV runtimes execute within the confines of Docker containers. These Docker containers are started on a remote Red Hat Enterprise Linux (RHEL) 7 operating system.
-
-The Docker daemon running on the RHEL7 remote host creates an internal network to allow for communication between containers. Both the JDV and PostgreSQL containers are assigned IP addresses from this internal network.
-
-This network is inaccessible to remote clients. Subsequently, the Docker containers executing on the RHEL7 host are initially no accessible to remote clients. Docker, however, provides the ability to proxy network ports from the Docker containers to ports exposed by the RHEL7 host. This network proxy mechanism is leveraged to allow remote JDBC/http/EAP management clients to invoke the remote Docker containers that typically would be inaccessible.
-
-The following diagram depicts this Docker network proxy mechanism:
-
-![JDV Container Networking]({{ "/images/jdv/container_network.png" | prepend: site.baseurl }})
+Congratulations, you have completed this introduction lab.

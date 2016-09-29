@@ -1,38 +1,57 @@
 ---
 layout: "module"
-subtitle: "Login & Tour of Guacamole"
+subtitle: "JBoss Developer Studio"
 ---
 
-This lab provides a quick tour of the Guacamole VNC server to help you get familiar with lab environment along with some key terminology we will use in subsequent lab content.
+JBoss Developer Studio (JBDS) is an integrated development environment (IDE) that integrates and certifies both tooling and runtime components by combining Eclipse, best-of-breed open source tools, and the JBoss Enterprise platform. You must have JBoss Developer Studio installed in your local development environment.
 
-If you are already familiar with the basics of Docker you can skip this lab — after making sure you can login.
+Among many other uses, the Teiid Designer plugin for JBDS will be used extensively.
 
-## Accessing Guacamole
+:information_source: If we provided you a lab environment for this workshop, we already set all this up for you!
 
-[Guacamole](http://bit.ly/2dzB3b6) is an HTML5 web application that provides access to desktop environments using remote desktop protocols (such as VNC or RDP). **As long as you have access to a web browser, you have access to your machines.**
+### Download & Install
 
-Navigate to the login `${URI}` and login with the your user/password, both should be provided to you by your instructor.
+This workshop requires the use of JBDS version 8.0 or more recent.
 
-![Guacamole Login]({{ "/images/guac_login.png" | prepend: site.baseurl }})
+JBDS can be downloaded from the Red Hat JBoss Developer Studio Overview page by clicking the "[Get Started](http://red.ht/2diqdZq)" button on the hyperlinked page.
 
-After logging in, you should see two groups, `term` and `vnc`.
+Once downloaded, refer to the instructions provided in the JBDS product [documentation](http://red.ht/2cBavc8) to install JBDS.
 
-![Guacamole Welcome]({{ "/images/guac_welc.png" | prepend: site.baseurl }})
+### JBDS Plugins Overview
 
-Before clicking on the user's name under the `vnc` group, navigate to the user's settings page.
+JBDS includes a variety of different plugins. The following is a list of the JBDS plugins that are needed for execution of this workshop:
 
-![Guacamole Settings]({{ "/images/guac_setti.png" | prepend: site.baseurl }})
+1. **Integration Stack Suite**
 
-And, select the "Text input" button under the **Default Input Method** section.
+    The Integration Stack Suite of plug-ins is of particular importance for the JDV course.
 
-![Guacamole Settings]({{ "/images/guac_input.png" | prepend: site.baseurl }})
+    The Integration Stack Suite of plug-ins is not included out-of-the-box with JBDS. Instead, the suite needs to be manually installed and is different between JBDS version 7.1 and 8.0.
 
-Return **Home** via the same drop down used to reach the settings page.
+    For version 7.1 of JBDS, follow the installation procedures in the JBDS IntegrationStack documentation.
 
-Finally, click your user's name under the `vnc` group.
+    For version 8.0 of JBDS, please see the section of this guide entitled Integration Stack Suite Plugins for JBDS 8.0
 
-![Guacamole Desktop]({{ "/images/guac_desk.png" | prepend: site.baseurl }})
+2. **Remote System Explorer Plugin**
 
-Once you see the user's desktop, you're ready to proceed to the next lab!
+    JBDS includes an out-of-the-box plugin for creating ssh / scp connections to remote SSH-enabled servers called: Remote System Explorer. No additional install of this plugin is necessary.
 
-In the event that this does not happen, please raise you hand :raising_hand: and an instructor will be by to help momentarily.
+3. **Eclipse eGit Plugin**
+
+    JBDS includes an out-of-the-box plugin called eGit to support git enabled projects. No additional install of this plugin is necessary. Git is a distributed SCM, which means every developer has a full copy of all history of every revision of the code, making queries against the history very fast and versatile.
+
+4. **Eclipse m2e Plugin**
+
+    JBDS includes an out-of-the-box plugin called m2e to support Apache Maven enabled projects. No additional install of this plugin is necessary. The goal of the m2e project is to provide a first-class Apache Maven support in the Eclipse IDE, making it easier to edit a Maven project’s pom.xml and run a build from the IDE.
+
+### Teiid Designer
+
+Included in the Integration Stack suite of JBDS plugins is the Teiid Designer. This is one of the primary developer tools provided by the JDV product and is used extensively in this workshop.
+
+It is critical that the most recent version of this plugin is being used. Verify the version of the Teiid Designer plugin via the following:
+
+1. In your local workstation, start JBDS.
+
+![Guacamole JDBS]({{ "/images/guac_jdbs.png" | prepend: site.baseurl }})
+
+2. Navigate to: `Help` --> `Installation Details` --> `Installed Software`.
+3. Scroll down and verify that the version of Teiid plugins is at least `9.0.1.Final` or more recent.
