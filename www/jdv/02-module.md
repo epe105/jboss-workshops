@@ -43,11 +43,11 @@ It is critical that the most recent version of this plugin is being used. Verify
 
 On your workstation, start JBDS.
 
-![Guacamole JDBS]({{ "/images/jdv/02-jbds_launch.png" | prepend: site.baseurl }})
+![Guacamole JBDS]({{ "/images/jdv/02-jbds_launch.png" | prepend: site.baseurl }})
 
 Navigate to `Help` → `Installation Details` → `Installed Software`.
 
-![JDBS Installation Details]({{ "/images/jdv/02-jbds_instd.png" | prepend: site.baseurl }})
+![JBDS Installation Details]({{ "/images/jdv/02-jbds_instd.png" | prepend: site.baseurl }})
 
 ![Teiid Plugin Version]({{ "/images/jdv/02-jbds_teiid.png" | prepend: site.baseurl }})
 
