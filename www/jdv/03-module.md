@@ -13,7 +13,7 @@ The following sections describe how to interact with your containerized software
 
 The `docker images` command can be executed to view Docker images that have already been created for you.
 
-Open a terminal in JBDS
+Open a terminal in JBDS.
 
 ![JBDS Terminal]({{ "/images/jdv/03-jbds_term.png" | prepend: site.baseurl }})
 
@@ -22,8 +22,6 @@ Then execute the following command:
 ```
 docker images
 ```
-
-**[NOTE]** Both of these images are already installed on your host system if we provided you a lab environment for this workshop.
 
 ### JDV Container
 
