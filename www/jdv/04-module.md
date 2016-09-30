@@ -5,9 +5,9 @@ subtitle: "Setup Demo Database"
 
 In order to use the labs we need to prepare one database.
 
-Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice.
+Out of the box we provide H2 embedded databases for your convenience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice.
 
-In the next paragraph we will describe how to instantiate the RDBMS container and load the demo data into it.
+In the next paragraph we will describe how to instantiate the RDBMS container and load the demo data into these databases, using Docker.
 
 ## Setup PostgreSQL
 
@@ -15,7 +15,7 @@ The easiest way to install PostgreSQL is to use the pre-built binary packages wh
 
 Post-install steps:
 
-If *nix or Mac OS X switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.
+If nix or Mac OS X switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.
 
 ```
 $ su postgres

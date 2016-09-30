@@ -9,7 +9,7 @@ The operating system user on your remote JDV lab host has been given privledges 
 
 The following sections describe how to interact with your containerized software.
 
-### Docker Images
+## Docker Images
 
 The `docker images` command can be executed to view Docker images that have already been created for you.
 
@@ -23,6 +23,10 @@ Then execute the following command:
 docker images
 ```
 
+![Docker Images]({{ "/images/jdv/03-docker_images.png" | prepend: site.baseurl }})
+
+As you can see, we've pulled some images into the environment.
+
 ### JDV Container
 
 [ecwpz91/jboss-jdv-6](http://bit.ly/2crwLqk) — Docker image built using JBoss Data Virtualization release 6.3.4.
@@ -35,7 +39,7 @@ To boot in standalone mode:
 docker run -d -p 6832:8080 -p 9990:9990 -p 8787:8787 -p 9999:9999 -p 31000:31000 --name test_jdv ecwpz91/jboss-jdv-6
 ```
 
-**[NOTE]** In addition to starting a container of the `ecwpz91/jboss-jdv-6` image, the above command maps port `6832` on the host operating system to the new container’s port `8080` (and so on).
+:information_source: In addition to starting a container of the `ecwpz91/jboss-jdv-6` image, the above command maps port `6832` on the host operating system to the new container’s port `8080` (and so on).
 
 Doing so allows remote clients to connect to the containerized JDV integration solution through port `6832`.
 
@@ -51,7 +55,7 @@ To SSH into running container:
 docker exec -it --user jboss test_jdv /bin/bash
 ```
 
-*Or*
+Or, to login as the root user:
 
 ```
 docker exec -it --user root test_jdv /bin/bash
@@ -107,7 +111,7 @@ To boot in standalone mode:
 docker run -d -p 6432:3306 --name test_mysql ecwpz91/mysql57
 ```
 
-**[NOTE]** In addition to starting a container of the `ecwpz91/mysql57` image, the above command maps port `6432` on the host operating system to the new container’s port `3306`.
+:information_source: In addition to starting a container of the `ecwpz91/mysql57` image, the above command maps port `6432` on the host operating system to the new container’s port `3306`.
 
 Doing so allows remote mysql clients to connect to the containerized MySQL Relational Database Management System (RDBMS) through port `6432`.
 
@@ -118,7 +122,7 @@ To SSH into running container:
 docker exec -it --user dbsys test_mysql /bin/bash
 ```
 
-*Or*
+Or, to login as the root user:
 
 ```
 docker exec -it --user root test_mysql /bin/bash
@@ -165,4 +169,6 @@ This network is inaccessible to remote clients. Subsequently, the Docker contain
 
 The following diagram depicts this Docker network proxy mechanism:
 
-![JDV Container Networking]({{ "/images/jdv/container_network.png" | prepend: site.baseurl }})
+![JDV Container Networking]({{ "/images/jdv/03-container_network.png" | prepend: site.baseurl }})
+
+Now that you understand more about Docker images and containers, it's time to move on to the next lab.
