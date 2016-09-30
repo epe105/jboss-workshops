@@ -9,7 +9,37 @@ Out of the box we provide H2 embedded databases for your convenience. We provide
 
 In the next paragraph we will describe how to instantiate the RDBMS container and load the demo data into these databases, using Docker.
 
-## Setup PostgreSQL
+## MySQL Container
+
+Launch the MySQL container in standalone mode.
+
+```
+docker run -d -p 3307:3306 --name user#_mysql ecwpz91/mysql57
+```
+
+:information_source: If you encounter the error following error message:
+
+```
+docker: Error response from daemon: failed to create endpoint user#_mysql on network bridge: Bind
+for 0.0.0.0:port# failed: port is already allocated.
+```
+
+This is because a running container or process may already be using this port on the current host system, therefore making it unallocable.
+
+To fix this, first remove the container, and then relaunch the Docker image with a different host port number.
+
+```
+docker rm user#_mysql
+docker run -d -p 3308:3306 --name user#_mysql ecwpz91/mysql57
+```
+
+Goto your user's home directory and run the following command:
+
+```
+[TODO]
+```
+
+## Setup PostgreSQL (Optional)
 
 The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See [documentation](http://bit.ly/2cD7Pen) for more information and downloads.
 
@@ -62,7 +92,7 @@ The easiest way to install MariaDB is to use the pre-built binary packages which
 
 Post-install steps
 
-After the installation completes and using *nix, start MariaDB with:
+After the installation completes and using nix, start MariaDB with:
 
 ```
 $ sudo /etc/init.d/mysql start
@@ -106,7 +136,7 @@ The easiest way to install MySQL is to use the pre-built binary packages which a
 
 Post-install steps
 
-If *nix or Mac OS X go to the /usr/local/mysql directory and start mysqld_safe
+If nix or Mac OS X go to the /usr/local/mysql directory and start mysqld_safe
 
 ```
 $ cd /usr/local/mysql
