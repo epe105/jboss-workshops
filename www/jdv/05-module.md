@@ -3,13 +3,9 @@ layout: "module"
 subtitle: "The Teiid Designer"
 ---
 
-To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective. To open the “Teiid Designer” perspective, first select Window ▸ Open Perspective ▸ Other…​ in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.
-
-**[INSERT_IMAGE_HERE]**
+To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective. To open the “Teiid Designer” perspective, first select Window → Open Perspective → Other…​ in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.
 
 Select Teiid Designer from the perspective list as shown below.
-
-**[INSERT_IMAGE_HERE]**
 
 Click OK. This will bring you to a screen that looks like this:
 
