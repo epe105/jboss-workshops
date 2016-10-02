@@ -11,8 +11,10 @@ Make sure that the previous labs have been completed so that a Red Hat JBoss Dat
 - If using PostgreSQL database, download the PostgreSQL JDBC Driver.
   - If you are using JDK 1.6 then you should use the JDBC4 version.
   - If you are using JDK 1.7 or JDK 1.8 then you should use the JDBC41 version.
-- If using MySQL database, download the MySQL JDBC Driver.
-- Save the JDBC driver in a "well-known" directory
+- If using MySQL database, download the MySQL JDBC Driver. **ME - we'll need to do this beforehand, or ask them to do this in Lab 4 **
+- Save the JDBC driver in a "well-known" directory.  **ME - Same as above**
+- **ME - We need to make sure they run the financials-mysql.sql script**
+
 
 ## Where are we?
 
