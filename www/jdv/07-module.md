@@ -11,9 +11,9 @@ Make sure that the previous labs have been completed so that a Red Hat JBoss Dat
 - If using PostgreSQL database, download the PostgreSQL JDBC Driver.
   - If you are using JDK 1.6 then you should use the JDBC4 version.
   - If you are using JDK 1.7 or JDK 1.8 then you should use the JDBC41 version.
-- If using MySQL database, download the MySQL JDBC Driver. **ME - we'll need to do this beforehand, or ask them to do this in Lab 4 **
+- If using MySQL database, download the MySQL JDBC Driver. **ME - do pre-setup, or follow instructions in Lab 4**
 - Save the JDBC driver in a "well-known" directory.  **ME - Same as above**
-- **ME - We need to make sure they run the financials-mysql.sql script**
+- **ME - We need to make sure they run the financials-mysql.sql script.  Instructions are in Lab 4**
 
 
 ## Where are we?
@@ -54,6 +54,8 @@ Right-click on the “DataSources” folder and select Import…​. In the Impo
 
 In the “Import JDBC Database >> Source Model” wizard, you will need to select a Connection Profile. If a connection profile does not exist for the database that contains the Product Schema, then select the New…​ button to create it. The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “Generic JDBC” for the connection profile type when using the embedded H2 database.
 
+**ME - Need to add a note to select MySQL for connection profile type rather than H2 type**
+
 :information_source: Do you use the other database types then select the appropriate connectionprofile of your database.
 
 Enter “Products” for the Name and click Next >.
@@ -74,9 +76,13 @@ In the “New Driver Definition” dialog, select the Generic JDBC driver for H2
 
 Click on the “JAR List” tab in the New Driver Definition wizard and click the Add JAR/Zip button to select the H2 JDBC driver file to use to access the H2 jar that is part of your JDV installation. Select the H2 JDBC driver file from the directory where this file is created after the installation.
 
+**ME - Need to add a note to select mysql jar rather than h2 jar.**
+
 **[INSERT_IMAGE_HERE]**
 
 Click on the "Properties" tab to set the properties of the H2 JDBC driver as depicted below.
+
+**ME - Need to add a note to select mysql properties jar rather than h2.**
 
 **[INSERT_IMAGE_HERE]**
 
@@ -89,6 +95,8 @@ Now that the driver has been selected, you can fill in the database, url, userna
 Database  | URL  | Username | Password
 --|---|---|--
 Products  | **[INSERT_URL_HERE]**  | sa  | sa
+
+**ME - Need to add a note to that the url should be jdbc:mysql://localhost:<port of mysql container>/products.  User name should root/my-secret-pw**
 
 Go ahead and check the “Save password” checkbox. Your JDBC Connection Profile wizard should resemble that below. Click Test Connection. A successful ping should return. If it does not, please raise your hand. Click Finish. After clicking “Finish”, your Import Database via JDBC wizard should look like that below. From this point, clicking Next > will take you to the dialog to select the metadata types that will be included when imported. The metadata that will be selected is indicated in the illustration below.
 
@@ -110,7 +118,12 @@ To keep the table names simple, make sure the “Use Fully Qualified Names” ch
 
 ## Preview Data via the Teiid Server
 
+**ME - For this to work the Teiid Server needs to be able to have a jdbc datasource to the MYSQL Database**
+**ME - the JNDI name of the datasource needs to match what is configured on JBDS**
+
 With an active Teiid Server connection, all physical models that have been imported, along with any virtual models that are built on top of them, can be sampled (previewed) with the simple click of a button. To do this, let’s utilize the Modeling Actions palette on the right-hand side of the Designer. Select Model JDBC Source and to Preview data, double-click on the Preview Data action. This will bring up the Preview Data dialogue as indicated below.
+
+
 
 **[INSERT_IMAGE_HERE]**
 
