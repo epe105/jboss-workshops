@@ -90,13 +90,13 @@ Click OK. After clicking OK, the warning that the JAR file could not be found wi
 
 **[INSERT_IMAGE_HERE]**
 
+**ME - Need to add a note to that the url should be jdbc:mysql://localhost:<port of mysql container>/products.  User name should root/my-secret-pw**
+
 Now that the driver has been selected, you can fill in the database, url, username, and password for the connection profile. Use the following values:
 
 Database  | URL  | Username | Password
 --|---|---|--
 Products  | **[INSERT_URL_HERE]**  | sa  | sa
-
-**ME - Need to add a note to that the url should be jdbc:mysql://localhost:<port of mysql container>/products.  User name should root/my-secret-pw**
 
 Go ahead and check the “Save password” checkbox. Your JDBC Connection Profile wizard should resemble that below. Click Test Connection. A successful ping should return. If it does not, please raise your hand. Click Finish. After clicking “Finish”, your Import Database via JDBC wizard should look like that below. From this point, clicking Next > will take you to the dialog to select the metadata types that will be included when imported. The metadata that will be selected is indicated in the illustration below.
 
@@ -119,6 +119,7 @@ To keep the table names simple, make sure the “Use Fully Qualified Names” ch
 ## Preview Data via the Teiid Server
 
 **ME - For this to work the Teiid Server needs to be able to have a jdbc datasource to the MYSQL Database**
+
 **ME - the JNDI name of the datasource needs to match what is configured on JBDS**
 
 With an active Teiid Server connection, all physical models that have been imported, along with any virtual models that are built on top of them, can be sampled (previewed) with the simple click of a button. To do this, let’s utilize the Modeling Actions palette on the right-hand side of the Designer. Select Model JDBC Source and to Preview data, double-click on the Preview Data action. This will bring up the Preview Data dialogue as indicated below.
