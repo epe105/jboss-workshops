@@ -12,10 +12,7 @@ Make sure that the previous labs have been completed so that a Red Hat JBoss Dat
   - If you are using JDK 1.6 then you should use the JDBC4 version.
   - If you are using JDK 1.7 or JDK 1.8 then you should use the JDBC41 version.
 - If using MySQL database, download the MySQL JDBC Driver.
-<!-- **ME - do pre-setup, or follow instructions in Lab 4** -->
-- Save the JDBC driver in a "well-known" directory.  
-<!-- **ME - Same as above** -->
-<!-- - **ME - We need to make sure they run the financials-mysql.sql script.  Instructions are in Lab 4** -->
+  - Save the JDBC driver in a "well-known" directory.  
 
 ## Where are we?
 
@@ -23,17 +20,25 @@ Make sure that the previous labs have been completed so that a Red Hat JBoss Dat
 
 ## Creating a Teiid Project
 
-Before you can create models of how your data will be exposed or used, you must first create a project. For the purposes of these labs, we will create a project named Financials. This Financials project will be where we create all of our source and view models and Virtual Database (VDB) files. To create the project, from the menu bar on JBDS, select File ▸ New ▸ Teiid Model Project. The New Model Project wizard will be displayed as below.
+Before you can create models of how your data will be exposed or used, you must first create a project. For the purposes of these labs, we will create a project named `Financials`. This `Financials` project will be where we create all of our source and view models and Virtual Database (VDB) files. To create the project, from the menu bar on JBDS, select File → New → Teiid Model Project.
 
-![New Model 1]({{ "/images/jdv/07-new_model1.png" | prepend: site.baseurl }})
+The New Model Project wizard will be displayed like below.
 
-In the project name, enter “Financials” and keep the remaining defaults. Select the Next > button.
+![New Model 1a]({{ "/images/jdv/07-new_model1a.png" | prepend: site.baseurl }})
+
+In the project name, enter “Financials”, keep the remaining defaults, and select the Next.
+
+![New Model 1b]({{ "/images/jdv/07-new_model1b.png" | prepend: site.baseurl }})
 
 After clicking Next, the following window is presented for Project References.
 
 ![New Model 2]({{ "/images/jdv/07-new_model2.png" | prepend: site.baseurl }})
 
-Keep the default and click Next > again. The next window that is presented is the Model Project Options. These are the folders that we will use during the course of building our Financials project. For this lab we will enter DataSources, EnterpriseDataLayer, Schemas, VirtualBaseLayer and WebServices. The Model Project Options window should look like that below.
+Keep the default and click Next again.
+
+The next window that is presented is the Model Project Options. These are the folders that we will use during the course of building our Financials project. For this lab we will enter `DataSources`, `EnterpriseDataLayer`, `Schemas`, `VirtualBaseLayer` and `WebServices`.
+
+The Model Project Options window should look like that below.
 
 ![New Model 3]({{ "/images/jdv/07-new_model3.png" | prepend: site.baseurl }})
 
@@ -45,29 +50,35 @@ After expanding the Financials Project, the JBDS Teiid Designer Perspective shou
 
 ## Creating a Source Model
 
-We must create a source model in order to access physical data or information from a source. The source model (also referred to as the physical model) contains all the metadata necessary for a Virtual Database (VDB) and its associated connectors to access or query data from a target source. There are a few different ways of creating source models. We will first go over the process of creating a source model using the Metadata Import Wizard. The Metadata Import Wizard helps you create new models in the workspace by importing metadata information from a physical enterprise information system or other data source. When you import metadata, the Designer creates a new metadata model for you. Once you have created this metadata model, you can alter it as you would any other. Keep in mind that any changes you make to an imported metadata model do not impact the underlying structure of the enterprise information system the model represents. In some cases you can also use the Metadata Import Wizard to update the information within the models based on changes to the underlying data source. The Teiid Designer comes with a number of plug-ins to import metadata from sources such as JDBC-compliant databases, text files, Salesforce.com, WSDL’s, XML Schemas, and DDL files. More information on the Import Wizard (and all of the features in the Teiid Designer) is available in the “Designer Users Guide”.
+We must create a source model in order to access physical data or information from a source. The source model (also referred to as the physical model) contains all the metadata necessary for a Virtual Database (VDB) and its associated connectors to access or query data from a target source. There are a few different ways of creating source models.
+
+We will first go over the process of creating a source model using the Metadata Import Wizard. The Metadata Import Wizard helps you create new models in the workspace by importing metadata information from a physical enterprise information system or other data source. When you import metadata, the Designer creates a new metadata model for you. Once you have created this metadata model, you can alter it as you would any other. Keep in mind that any changes you make to an imported metadata model do not impact the underlying structure of the enterprise information system the model represents.
+
+In some cases you can also use the Metadata Import Wizard to update the information within the models based on changes to the underlying data source. The Teiid Designer comes with a number of plug-ins to import metadata from sources such as JDBC-compliant databases, text files, Salesforce.com, WSDL’s, XML Schemas, and DDL files. More information on the Import Wizard (and all of the features in the Teiid Designer) is available in the “Designer Users Guide”.
 
 ## Importing Metadata from the Product Database
 
-Right-click on the “DataSources” folder and select Import…​. In the Import wizard dialog, select the arrow next to “Teiid Designer” to expand the import options. Now, select “JDBC Database >> Source Model” and click Next >.
+Right-click on the “DataSources” folder and select "Import…​". In the Import wizard dialog, select the arrow next to “Teiid Designer” to expand the import options.
+
+Now, select “JDBC Database >> Source Model” and click Next.
 
 ![Metadata Import]({{ "/images/jdv/07-meta_import.png" | prepend: site.baseurl }})
 
-In the “Import JDBC Database >> Source Model” wizard, you will need to select a Connection Profile. If a connection profile does not exist for the database that contains the Product Schema, then select the New…​ button to create it. The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “Generic JDBC” for the connection profile type when using the embedded H2 database.
+In the “Import JDBC Database >> Source Model” wizard, you will need to select a Connection Profile. If a connection profile does not exist for the database that contains the `Product Schema`, then select the New…​ button to create it.
 
-<!-- **ME - Need to add a note to select MySQL for connection profile type rather than H2 type** -->
+The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “Generic JDBC” for the connection profile type when using the embedded H2 database.
 
-:information_source: Do you use the other database types then select the appropriate connectionprofile of your database.
-
-Enter “Products” for the Name and click Next >.
+Enter “Products” for the Name and click Next.
 
 ![Connection Profile 1]({{ "/images/jdv/07-conn_prof1.png" | prepend: site.baseurl }})
 
-The next step of setting up the connection profile is selecting the driver to use. If the driver you need is not listed in the drop-down list of Drivers (and it should not be if this is your first time through these steps).
+The next step of setting up the connection profile is selecting the driver to use.
+
+:information_source: If this is your first time through these steps, the driver you need is not listed in the drop-down list of Drivers.
 
 ![JDBC Driver]({{ "/images/jdv/07-jdbc_driver.png" | prepend: site.baseurl }})
 
-Then select the cross-haired icon “New Driver Definition” which is the first button to the right of Drivers drop-down list.
+To define a new driver, you'll need to need to select the cross-haired icon “New Driver Definition” which is the first button to the right of Drivers drop-down list.
 
 ![Connection Profile 2]({{ "/images/jdv/07-conn_prof2.png" | prepend: site.baseurl }})
 
@@ -75,31 +86,48 @@ In the “New Driver Definition” dialog, select the Generic JDBC driver for H2
 
 ![Connection Profile 3]({{ "/images/jdv/07-conn_prof3.png" | prepend: site.baseurl }})
 
-Click on the “JAR List” tab in the New Driver Definition wizard and click the Add JAR/Zip button to select the H2 JDBC driver file to use to access the H2 jar that is part of your JDV installation. Select the H2 JDBC driver file from the directory where this file is created after the installation.
+Click on the “JAR List” tab in the New Driver Definition wizard and click the Add JAR/Zip button to select the H2 JDBC driver file to use to access the H2 jar that is part of your JDV installation.
 
-<!-- **ME - Need to add a note to select mysql jar rather than h2 jar.** -->
+:information_source: Make sure the driver template name is selected beforehand, otherwise when you go to the "JAR List" tab, you'll be unable to select any of the options for adding, removing, or editing a JAR/Zip file.
 
-![Connection Profile 4]({{ "/images/jdv/07-conn_prof4.png" | prepend: site.baseurl }})
+Select the H2 JDBC driver file from the directory where this file is created after the installation.
+
+![Connection Profile 4a]({{ "/images/jdv/07-conn_prof4a.png" | prepend: site.baseurl }})
+
+:information_source: If we have provided you with a lab environment, this resource is located on your user's Desktop under the `jboss-workshops` folder.
+
+![Connection Profile 4b]({{ "/images/jdv/07-conn_prof4b.png" | prepend: site.baseurl }})
 
 Click on the "Properties" tab to set the properties of the H2 JDBC driver as depicted below.
 
-<!-- **ME - Need to add a note to select mysql properties jar rather than h2.** -->
+Propery  |  Value
+--|--
+Connection URL  |  jdbc:h2:/home/`user#`/Desktop/jboss-workshops/dv-docker/h2-layer/products (replace `user#` with your username)
+Database Name   |  products
+Driver Class    |  org.h2.Driver
+User ID         | sa
 
 ![Connection Profile 5]({{ "/images/jdv/07-conn_prof5.png" | prepend: site.baseurl }})
 
-Click OK. After clicking OK, the warning that the JAR file could not be found will go away. Click OK to return to the previous wizard.
+Then, click OK.
 
-![Import JDBC 1]({{ "/images/jdv/07-import_jdbc1.png" | prepend: site.baseurl }})
+After clicking OK, the warning that the JAR file could not be found will go away. Click OK to return to the previous wizard.
 
-<!-- **ME - Need to add a note to that the url should be jdbc:mysql://localhost:<port of mysql container>/products.  User name should root/my-secret-pw** -->
+![Import JDBC 1a]({{ "/images/jdv/07-import_jdbc1a.png" | prepend: site.baseurl }})
 
 Now that the driver has been selected, you can fill in the database, url, username, and password for the connection profile. Use the following values:
 
 Database  | URL  | Username | Password
 --|---|---|--
-Products  | jdbc:h2:/home/user#/Desktop/jboss-workshops/dv-docker/h2-layer/products.h2.db  | sa  | sa
+Products  | jdbc:h2:/home/user#/Desktop/jboss-workshops/dv-docker/h2-layer/products  | sa  | sa
 
-Go ahead and check the “Save password” checkbox. Your JDBC Connection Profile wizard should resemble that below. Click Test Connection. A successful ping should return. If it does not, please raise your hand. Click Finish. After clicking “Finish”, your Import Database via JDBC wizard should look like that below. From this point, clicking Next > will take you to the dialog to select the metadata types that will be included when imported. The metadata that will be selected is indicated in the illustration below.
+![Import JDBC 1b]({{ "/images/jdv/07-import_jdbc1b.png" | prepend: site.baseurl }})
+
+Go ahead and check the “Save password” checkbox, and your JDBC Connection Profile wizard should resemble that above.
+
+Click Test Connection. A successful ping should return. If it does not, please raise your hand. :raising_hand:
+
+Otherwise, click Finish. After clicking “Finish”, your Import Database via JDBC wizard should look like that below. From this point, clicking Next will take you to the dialog to select the metadata types that will be included when imported. The metadata that will be selected is indicated in the illustration below.
 
 ![Import JDBC 2]({{ "/images/jdv/07-import_jdbc2.png" | prepend: site.baseurl }})
 
@@ -107,7 +135,7 @@ Once your database metadata selections have been made, click the Next button. Th
 
 ![Import JDBC 3]({{ "/images/jdv/07-import_jdbc3.png" | prepend: site.baseurl }})
 
-If your dialogue looks like that above, click the Next > button. This will bring up the final screen of the JDBC Import Wizard as indicated below. Notice that there is a requirement to select which folder this model should be created in. To the right of the “Into Folder” attribute, there is a button with …​ on it. Click this button and the following screen will be shown.
+If your dialogue looks like that above, click the Next button. This will bring up the final screen of the JDBC Import Wizard as indicated below. Notice that there is a requirement to select which folder this model should be created in. To the right of the “Into Folder” attribute, there is a button with "…​" on it. Click this button and the following screen will be shown.
 
 ![Import JDBC 4]({{ "/images/jdv/07-import_jdbc4.png" | prepend: site.baseurl }})
 
@@ -115,28 +143,24 @@ Select the DataSources folder as indicated above. Once the folder has been selec
 
 ![Import JDBC 5]({{ "/images/jdv/07-import_jdbc5.png" | prepend: site.baseurl }})
 
-To keep the table names simple, make sure the “Use Fully Qualified Names” checkbox is unchecked. After verifying it matches, click the Finish button. You will now see the Products.xmi source model was opened and its Package Diagram can be seen in the model view area. Click on productdata_pkey (the primary key of the productdata table at the bottom) and note that the Primary Key (productid) in productdata and the Foreign Key (productid) in the productssymbols table are highlighted. This is because Teiid Designer knows via the metadata that all of these elements are related.
+To keep the table names simple, make sure the “Use Fully Qualified Names” checkbox is unchecked. After verifying it matches, click the Finish button.
+
+You will now see the Products.xmi source model was opened and its Package Diagram can be seen in the model view area. Click on productdata_pkey (the primary key of the productdata table at the bottom) and note that the Primary Key (productid) in productdata and the Foreign Key (productid) in the productssymbols table are highlighted. This is because Teiid Designer knows via the metadata that all of these elements are related.
 
 ## Preview Data via the Teiid Server
-
-<!--
-**ME - For this to work the Teiid Server needs to be able to have a jdbc datasource to the MYSQL Database**
-
-**ME - the JNDI name of the datasource needs to match what is configured on JBDS**
--->
 
 With an active Teiid Server connection, all physical models that have been imported, along with any virtual models that are built on top of them, can be sampled (previewed) with the simple click of a button. To do this, let’s utilize the Modeling Actions palette on the right-hand side of the Designer. Select Model JDBC Source and to Preview data, double-click on the Preview Data action. This will bring up the Preview Data dialogue as indicated below.
 
 
 ![Product Data 1]({{ "/images/jdv/07-prod_data1.png" | prepend: site.baseurl }})
 
-Click the …​ button to open up a Table or Procedure Selection window. This allows us to drill-down into the tables that we wish to preview data for. For this lab, simply expand Financials, DataSources, and Products.xmi in order to select the productdata table as indicated in the illustration below.
+Click the "…"​ button to open up a Table or Procedure Selection window. This allows us to drill-down into the tables that we wish to preview data for. For this lab, simply expand Financials, DataSources, and Products.xmi in order to select the productdata table as indicated in the illustration below.
 
 ![Product Data 2]({{ "/images/jdv/07-prod_data2.png" | prepend: site.baseurl }})
 
 This will bring us back to the Preview Data window where it should look like the one below.
 
-![Product Data 3]({{ "/images/jdv/07-prod_data3.png" | prepend: site.baseurl }})
+<!-- ![Product Data 3]({{ "/images/jdv/07-prod_data3.png" | prepend: site.baseurl }}) -->
 
 Once you click OK, the Custom Preview Data window will appear and give the possibility to customize the SQL statement.
 

@@ -41,10 +41,8 @@ For the Teiid JDBC Connection Info, enter `teiidUser` as the username and `jb0ss
 
 :information_source: The default port number may need to change depending on which proxy network ports from the Docker containers are being exposed to the RHEL7 host.
 
-Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below. As a “sanity” check, be sure to click the "Test Administration Connection" and "Test JDBC Connection" links. You should get a "OK" message.
 
-
-If you do not, please raise your hand :raising_hand:. If it failed, it may be necessary to cancel and retry the steps again.
+If you do not, please raise your hand :raising_hand: and an instructor will be by to help momentarily.
 
 JBDS should look like the following illustration.
 
