@@ -11,7 +11,9 @@ The Open Data Protocol (OData) is a Web protocol for querying and updating data 
 
 ## How to access the data
 
-When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration. Now, open up a browser and point it to the following URL: http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER. If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as
+When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration. Now, open up a browser and point it to the following URL: http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER.
+
+If you are requested to type in a username/password enter the credentials for the `teiidUser`. This is similar to making a JDBC/ODBC connection and issuing a SQL call as
 
 ```
 SELECT * FROM All_Customers.CUSTOMER;

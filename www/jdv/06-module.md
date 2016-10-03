@@ -7,13 +7,13 @@ The customer here is a retail brokerage firm with customers across the US and Eu
 
 ## Demo Context
 
-**[INSERT_IMAGE_HERE]**
+![Demo Context]({{ "/images/jdv/06-demo_context.png" | prepend: site.baseurl }})
 
 ## Demo Workflow
 
 Here’s how you can do this in JBoss Data Virtualization, using the Teiid Designer graphical design tool:
 
-**[INSERT_IMAGE_HERE]**
+![Demo Workflow]({{ "/images/jdv/06-demo_workflow.png" | prepend: site.baseurl }})
 
 Import of metadata from data sources
 
