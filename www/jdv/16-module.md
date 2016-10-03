@@ -9,13 +9,11 @@ The Open Data Protocol (OData) is a Web protocol for querying and updating data 
 
 ## Where are we?
 
-**[INSERT_IMAGE_HERE]**
+![demo odata]({{ "/images/jdv/demo-odata.png" | prepend: site.baseurl }})
 
 ## How to access the data
 
-When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration. Now, open up a browser and point it to the following URL: http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER.
-
-If you are requested to type in a username/password enter the `teiidUser` credentials. This is similar to making a JDBC/ODBC connection and issuing a SQL call as
+When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration. Now, open up a browser and point it to the following URL: http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER. If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as
 
 ```
 SELECT * FROM All_Customers.CUSTOMER;
@@ -23,13 +21,13 @@ SELECT * FROM All_Customers.CUSTOMER;
 
 The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.
 
-**[INSERT_IMAGE_HERE]**
+![demo odata]({{ "/images/jdv/9.1-OData.png" | prepend: site.baseurl }})
 
 To return the results in JSON format use the following URL as shown below:
 
 `http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER?$format=json`
 
-**[INSERT_IMAGE_HERE]**
+![demo odata]({{ "/images/jdv/9.1-OData-JSON.png" | prepend: site.baseurl }})
 
 ## How to query the data
 
@@ -43,7 +41,7 @@ Use following URL and it should return the results shown below:
 
 `http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER('CST01033')?$format=json`
 
-**[INSERT_IMAGE_HERE]**
+![demo odata]({{ "/images/jdv/9.2-Query.png" | prepend: site.baseurl }})
 
 Another way to query the data is to use the OData filter system query option using $filter in the URL. The $filter system query option allows clients to filter the set of resources that are addressed by a request URL. $filter specifies conditions that MUST be met by a resource for it to be returned in the set of matching resources. To search customers from the USA which is the SQL equivalent of:
 
@@ -55,7 +53,7 @@ Use following URL and this should return the results as shown below:
 
 `http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER?$filter=COUNTRY eq 'USA'&$format=json`
 
-**[INSERT_IMAGE_HERE]**
+![demo odata]({{ "/images/jdv/9.2-Query2.png" | prepend: site.baseurl }})
 
 Play around with the OData v4 syntax.
 
