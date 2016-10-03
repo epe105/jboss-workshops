@@ -36,7 +36,7 @@ As you can see, we've pulled some images into the environment.
 To boot in standalone mode:
 
 ```
-docker run -d -p 6832:8080 -p 9990:9990 -p 8787:8787 -p 9999:9999 -p 31000:31000 --name test_jdv ecwpz91/jboss-jdv-6
+docker run -d -p 8080:8080 -p 9990:9990 -p 8787:8787 -p 9999:9999 -p 31000:31000 --name user#_jdv ecwpz91/jboss-jdv-6
 ```
 
 :information_source: In addition to starting a container of the `ecwpz91/jboss-jdv-6` image, the above command maps port `6832` on the host operating system to the new container’s port `8080` (and so on).
@@ -99,7 +99,7 @@ docker rm -f test_jdv
 | 9999 | EAP Mgmt CLI |
 | 31000 | JDBC Connection |
 
-### MySQL Container
+### MySQL Container (Optional)
 
 [ecwpz91/mysql57](http://bit.ly/2dx97EU) — Docker image built using [MySQL](http://bit.ly/2cz3TZf) release 5.7.15.
 
@@ -163,7 +163,7 @@ docker rm -f test_mysql
 
 The MySQL and JDV runtimes execute within the confines of Docker containers. These Docker containers are started on a remote Red Hat Enterprise Linux (RHEL) 7 operating system.
 
-The Docker daemon running on the RHEL7 remote host creates an internal network to allow for communication between containers. Both the JDV and PostgreSQL containers are assigned IP addresses from this internal network.
+The Docker daemon running on the RHEL7 remote host creates an internal network to allow for communication between containers. Both the JDV and MySQL containers are assigned IP addresses from this internal network.
 
 This network is inaccessible to remote clients. Subsequently, the Docker containers executing on the RHEL7 host are initially no accessible to remote clients. Docker, however, provides the ability to proxy network ports from the Docker containers to ports exposed by the RHEL7 host. This network proxy mechanism is leveraged to allow remote JDBC/http/EAP management clients to invoke the remote Docker containers that typically would be inaccessible.
 
