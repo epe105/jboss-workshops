@@ -12,12 +12,11 @@ paginate: 1
 
 # About/contact
 author:
-  name: Manny Evangelista
-  vocation: Partner Solutions Architect
-  email: mevangel@redhat.com
-  github_username:  epe105
-  twitter_username:
-  # url:  http://yourhomepage.com
+  name: Michael Surbey
+  vocation: Solutions Architect
+  email: msurbey@redhat.com
+  github_username: ecwpz91
+  twitter_username: ecwpz91
 
 # Build settings
 markdown: kramdown
