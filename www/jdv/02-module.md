@@ -11,9 +11,7 @@ Among many other uses, the Teiid Designer plugin for JBDS will be used extensive
 
 :exclamation: If we provided you a lab environment for this workshop, we already set all this up for you.
 
-This workshop requires the use of JBDS version 8.0 or later.
-
-JBDS can be downloaded from the [Red Hat JBoss Developer Studio Overview](http://red.ht/2diqdZq) page by clicking the "Get Started" button.
+This workshop requires the use of JBDS version 8.0 or later. JBDS can be downloaded from the [Red Hat JBoss Developer Studio Overview](http://red.ht/2diqdZq) page by clicking the "Get Started" button.
 
 Once downloaded, refer to the instructions provided in the JBDS product [documentation](http://red.ht/2cBavc8) to continue installation.
 

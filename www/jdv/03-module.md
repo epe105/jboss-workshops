@@ -36,47 +36,63 @@ As you can see, we've pulled some images into the environment.
 To boot in standalone mode:
 
 ```
-docker run -d -p 8080:8080 -p 9990:9990 -p 8787:8787 -p 9999:9999 -p 31000:31000 --name user#_jdv ecwpz91/jboss-jdv-6
+docker run -d -p port#:8080 -p port#:9990 -p port#:8787 -p port#:9999 -p port#:31000 --name user#_jdv ecwpz91/jboss-jdv-6
 ```
 
-:information_source: In addition to starting a container of the `ecwpz91/jboss-jdv-6` image, the above command maps port `6832` on the host operating system to the new container’s port `8080` (and so on).
+:information_source: In addition to starting a container of the `ecwpz91/jboss-jdv-6` image, the above command maps `port#` on the host operating system to the new container’s port `8080` (and so on).
 
 Doing so allows remote clients to connect to the containerized JDV integration solution through port `6832`.
+
+:information_source: If you encounter the error following error message:
+
+```
+docker: Error response from daemon: failed to create endpoint user#_jdv on network bridge: Bind
+for 0.0.0.0:port# failed: port is already allocated.
+```
+
+This is because a running container or process may already be using this port on the current host system, therefore making it unallocable.
+
+To fix this, first remove the container, and then relaunch the Docker image with a different host port number.
+
+```
+docker rm user#_jdv
+docker run -d -p new_port#:3306 --name user#_jdv ecwpz91/jboss-jdv-6
+```
 
 To view console, open browser and goto:
 
 ```
-http://127.0.0.1:6832/
+http://127.0.0.1:port#/
 ```
 
 To SSH into running container:
 
 ```
-docker exec -it --user jboss test_jdv /bin/bash
+docker exec -it --user jboss user#_jdv /bin/bash
 ```
 
 Or, to login as the root user:
 
 ```
-docker exec -it --user root test_jdv /bin/bash
+docker exec -it --user root user#_jdv /bin/bash
 ```
 
 To view log files of docker container:
 
 ```
-docker logs test_jdv
+docker logs user#_jdv
 ```
 
 To stop the container:
 
 ```
-docker stop test_jdv
+docker stop user#_jdv
 ```
 
 To delete the container:
 
 ```
-docker rm -f test_jdv
+docker rm -f user#_jdv
 ```
 
 #### Credentials
@@ -101,6 +117,8 @@ docker rm -f test_jdv
 
 ### MySQL Container (Optional)
 
+:exclamation: Out of the box we provide H2 embedded databases for your convenience, which is what we will use extensively throughout this lab. But, if you'd like to try some database SQL scripts as well for MySQL the next paragraph will describe how to instantiate the RDBMS container and load the demo data into these databases, using Docker.
+
 [ecwpz91/mysql57](http://bit.ly/2dx97EU) — Docker image built using [MySQL](http://bit.ly/2cz3TZf) release 5.7.15.
 
 #### Usage
@@ -108,42 +126,57 @@ docker rm -f test_jdv
 To boot in standalone mode:
 
 ```
-docker run -d -p 6432:3306 --name test_mysql ecwpz91/mysql57
+docker run -d -p port#:3306 --name user#_mysql ecwpz91/mysql57
 ```
 
-:information_source: In addition to starting a container of the `ecwpz91/mysql57` image, the above command maps port `6432` on the host operating system to the new container’s port `3306`.
+:information_source: In addition to starting a container of the `ecwpz91/mysql57` image, the above command maps `port#` on the host operating system to the new container’s port `3306`.
 
 Doing so allows remote mysql clients to connect to the containerized MySQL Relational Database Management System (RDBMS) through port `6432`.
 
+:information_source: If you encounter the error following error message:
+
+```
+docker: Error response from daemon: failed to create endpoint user#_mysql on network bridge: Bind
+for 0.0.0.0:port# failed: port is already allocated.
+```
+
+This is because a running container or process may already be using this port on the current host system, therefore making it unallocable.
+
+To fix this, first remove the container, and then relaunch the Docker image with a different host port number.
+
+```
+docker rm user#_mysql
+docker run -d -p new_port#:3306 --name user#_mysql ecwpz91/mysql57
+```
 
 To SSH into running container:
 
 ```
-docker exec -it --user dbsys test_mysql /bin/bash
+docker exec -it --user dbsys user#_mysql /bin/bash
 ```
 
 Or, to login as the root user:
 
 ```
-docker exec -it --user root test_mysql /bin/bash
+docker exec -it --user root user#_mysql /bin/bash
 ```
 
 To view log files of docker container:
 
 ```
-docker logs test_mysql
+docker logs user#_mysql
 ```
 
 To stop the container:
 
 ```
-docker stop test_mysql
+docker stop user#_mysql
 ```
 
 To delete the container:
 
 ```
-docker rm -f test_mysql
+docker rm -f user#_mysql
 ```
 
 #### Credentials
@@ -153,13 +186,60 @@ docker rm -f test_mysql
 | root  | my-secret-pw | MySQL root user |
 | shadowman | r3dh4t1! | Default user |
 
+#### Data Setup
+
+:exclamation: The MySQL container `ecwpz91/mysql57` should be started before proceeding.
+
+Open a terminal, and change directory to the host system's workshop project folder:
+
+```
+$ pushd ~/Desktop/jboss-workshops/dv-docker/demo
+```
+
+Login to the running container:
+
+```
+$ mysql -u root -p -h 127.0.0.1 -P port#
+```
+
+Executing SQL Statements from a Text File:
+
+```
+mysql> source financials-mysql.sql
+```
+
+If this is successfully executed, the MySQL environment contains all necessary databases.
+
+```
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| apaccustomers      |
+| brokerinfo         |
+| eucustomers        |
+| mysql              |
+| performance_schema |
+| products           |
+| test               |
+| uscustomers        |
++--------------------+
+9 rows in set (0.02 sec)
+
+mysql> exit
+Bye
+```
+
+The labs will use the following databases:
+
+- apaccustomer
+- brokerinfo
+- eucustomers
+- products
+- uscustomers
+
 #### Networking
-
-| Port | Description |
-| ----- | -------------- |
-| 3306 | Default port |
-
-### Container Networking
 
 The MySQL and JDV runtimes execute within the confines of Docker containers. These Docker containers are started on a remote Red Hat Enterprise Linux (RHEL) 7 operating system.
 
