@@ -1,5 +1,6 @@
-_site
 .bundle
 .sass-cache
-Gemfile.lock
 .DS_Store
+Gemfile.lock
+_site
+dv-docker
