@@ -41,7 +41,7 @@ docker run -d -p port#:8080 -p port#:9990 -p port#:8787 -p port#:9999 -p port#:3
 
 :information_source: In addition to starting a container of the `ecwpz91/jboss-jdv-6` image, the above command maps `port#` on the host operating system to the new container’s port `8080` (and so on).
 
-Doing so allows remote clients to connect to the containerized JDV integration solution through port `6832`.
+Doing so allows remote clients to connect to the containerized JDV integration solution through whichever port is specified by a user with sufficient Docker privileges on the host system.
 
 :information_source: If you encounter the error following error message:
 
@@ -99,11 +99,11 @@ docker rm -f user#_jdv
 
 | User | Password | Description | URL |
 | ------ | ------------ | ----------- | ---- |
-| admin | jb0ssredhat! | EAP Mgmt Console | http://localhost:9990/console |
+| admin | jb0ssredhat! | EAP Mgmt Console | http://localhost:port#/console |
 | admin | jb0ssredhat! | EAP Mgmt CLI | |
-| dashboardAdmin | jb0ssredhat! | Teiid Dashboard | http://localhost:6832/dashboard |
+| dashboardAdmin | jb0ssredhat! | Teiid Dashboard | http://localhost:port#/dashboard |
 | teiidUser | jb0ssredhat! | JDBC Connection | |
-| modeshapeUser | jb0ssredhat! | ModeShape Rest Endpoint | http://localhost:6832/modeshape-rest |
+| modeshapeUser | jb0ssredhat! | ModeShape Rest Endpoint | http://localhost:port#/modeshape-rest |
 
 #### Networking
 
@@ -131,7 +131,7 @@ docker run -d -p port#:3306 --name user#_mysql ecwpz91/mysql57
 
 :information_source: In addition to starting a container of the `ecwpz91/mysql57` image, the above command maps `port#` on the host operating system to the new container’s port `3306`.
 
-Doing so allows remote mysql clients to connect to the containerized MySQL Relational Database Management System (RDBMS) through port `6432`.
+Doing so allows remote mysql clients to connect to the containerized MySQL Relational Database Management System (RDBMS) through whichever port is specified by a user with sufficient Docker privileges on the host system.
 
 :information_source: If you encounter the error following error message:
 
@@ -202,7 +202,7 @@ Login to the running container:
 $ mysql -u root -p -h 127.0.0.1 -P port#
 ```
 
-Executing SQL Statements from a Text File:
+Executing SQL Statements from a text File:
 
 ```
 mysql> source financials-mysql.sql
@@ -251,4 +251,4 @@ The following diagram depicts this Docker network proxy mechanism:
 
 ![JDV Container Networking]({{ "/images/jdv/03-container_network.png" | prepend: site.baseurl }})
 
-Now that you understand more about Docker images and containers, it's time to move on to the next lab.
+:ok_hand: Now that you understand more about Docker images and containers, it's time to move on to the next lab.

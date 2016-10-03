@@ -3,11 +3,11 @@ layout: "module"
 subtitle: "The Teiid Designer"
 ---
 
-To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective. To open the “Teiid Designer” perspective, first select Window → Open Perspective → Other…​ in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.
+To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective.
 
-Select Teiid Designer from the perspective list as shown below.
+To open the “Teiid Designer” perspective, first select Window → Open Perspective → Other…​ in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.
 
-Click OK. This will bring you to a screen that looks like this:
+Select Teiid Designer from the perspective list as shown below and click OK. This will bring you to a screen that looks like this:
 
 ![Teiid Designer]({{ "/images/jdv/05-teiid_design.png" | prepend: site.baseurl }})
 
@@ -52,4 +52,4 @@ JBDS should look like the following illustration.
 
 You can now begin creating your own Red Hat JBoss Data Virtualization projects.
 
-Congratulations, you have now completed this lab.
+:+1: Congratulations, you have now completed this lab.
