@@ -29,34 +29,32 @@ PORT  | The port on which JBoss Data Virtualization is listening for incoming JD
 
 ## Where are we?
 
-**[INSERT_IMAGE_HERE]**
-
 ## How to access the data
 
 When you have successfully deployed the Financials VDB into the JDV server, the JDBC protocol support is provided by the JDV server by using the Teiid JDBC driver. The Teiid JDBC driver which resided in teiid-8.12.5.redhat-8-jdbc.jar can be found in $EAP_HOME/dataVirtualization/jdbc directory.
 
 The Teiid JDBC driver can be used in JDBC client tools like [Squirrel](http://bit.ly/2d68N0y) or [DBVisualizer](http://bit.ly/2d66fzU) etc..
 
-The following steps are used to setup the connection using the Teiid JDBC driver in Squirrel.
+The following steps are used to setup the connection using the Teiid JDBC driver in DBVisualizer.
 
-Start Squirrel
+Start DBVisualizer
 
-**[INSERT_IMAGE_HERE]**
+![demo jdbc]({{ "/images/jdv/demo-jdbc-dbv.png" | prepend: site.baseurl }})
 
-Select Drivers tab.
+Select Tools > Driver Manager.
 
-**[INSERT_IMAGE_HERE]**
+![demo jdbc]({{ "/images/jdv/demo-jdbc.dm.png" | prepend: site.baseurl }})
 
-Create a new driver by clicking on +.
+Create a new driver by clicking on create new driver button.
 
-**[INSERT_IMAGE_HERE]**
+![demo jdbc]({{ "/images/jdv/demo-jdbc-dbv-ad.png" | prepend: site.baseurl }})
 
-Close the Driver windowand click OK. Now we have setup the Teiid JDBC driver we can now create a database connection to the Financials VDB using the driver previously created.
+Close the Driver Manager windows. Since we have setup the Teiid JDBC driver we can now create a database connection to the Financials VDB using the driver previously created.
 
-Select Aliases tab. Create a new database connection by clicking on Create a new alias by clicking on +.
+Create a new database connection by clicking on Create a new database connection button, demo jdbc dbv dbc button and select No Wizard.
 
-**[INSERT_IMAGE_HERE]**
+![demo jdbc]({{ "/images/jdv/demo-jdbc-dbv-dbc.png" | prepend: site.baseurl }})
 
 Select the Teiid driver in the Driver list box and fill in the approriate settings for connecting to the Financials VDB as depicted in the screenshot above. Try to connect and if the connection is successfully established you can run queries against the models which are exposed by the VDB.
 
-**[INSERT_IMAGE_HERE]**
+![demo jdbc]({{ "/images/jdv/demo-jdbc-connect.png" | prepend: site.baseurl }})
